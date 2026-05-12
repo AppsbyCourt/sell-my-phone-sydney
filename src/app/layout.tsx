@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Caprasimo, Familjen_Grotesk, Fraunces } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -39,6 +40,20 @@ export default function RootLayout({
       lang="en-AU"
       className={`${fraunces.variable} ${caprasimo.variable} ${familjen.variable} h-full antialiased`}
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18158980464"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18158980464');
+          `}
+        </Script>
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
