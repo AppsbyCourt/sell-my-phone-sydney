@@ -1,24 +1,45 @@
 import type { Metadata } from "next";
+import { Caprasimo, Familjen_Grotesk, Fraunces } from "next/font/google";
 import "./globals.css";
 
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["opsz", "SOFT"],
+  display: "swap",
+});
+
+const caprasimo = Caprasimo({
+  variable: "--font-caprasimo",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const familjen = Familjen_Grotesk({
+  variable: "--font-familjen",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Sell My Phone Sydney — Same-Day Cash for Your Old Phone",
+  title: "Sell My Phone Sydney — Fair quotes. Same-day cash.",
   description:
-    "Sydney's fastest phone buyback. Get a quote in minutes, same-day cash or bank transfer. Apple, Samsung, Google — any condition.",
+    "Sell your iPhone, Samsung or other mobile in Sydney. Fair quote in hours. Cash, bank transfer or PayID. No haggling.",
   metadataBase: new URL("https://sellmyphonesydney.com.au"),
-  openGraph: {
-    title: "Sell My Phone Sydney",
-    description: "Same-day cash for your old phone. Top prices, Sydney-wide.",
-    type: "website",
-  },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en-AU">
-      <body className="min-h-dvh bg-neutral-950 text-neutral-100 antialiased">
-        {children}
-      </body>
+    <html
+      lang="en-AU"
+      className={`${fraunces.variable} ${caprasimo.variable} ${familjen.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

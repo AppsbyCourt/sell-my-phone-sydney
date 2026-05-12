@@ -1,0 +1,1351 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sell My Phone Sydney — Sandstone Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* -------- Tokens -------- */
+  :root {
+    --bone:        #F3EEE5;   /* page background, oat */
+    --bone-2:      #EAE3D6;   /* slightly deeper */
+    --sand:        #D9CDB6;   /* warm sandstone */
+    --sand-deep:   #B59A78;
+    --ink:         #1F2A2E;   /* deep harbour-water ink */
+    --ink-soft:    #2E3A3F;
+    --slate:       #6E7479;   /* muted slate for secondary text */
+    --slate-2:     #9A9690;
+    --terracotta:  #B5503A;   /* CTA */
+    --terracotta-d:#933E2C;
+    --rule:        rgba(31,42,46,0.14);
+    --rule-strong: rgba(31,42,46,0.32);
+
+    --serif: "Fraunces", "Times New Roman", serif;
+    --sans:  "Geist", "Inter", system-ui, -apple-system, sans-serif;
+    --mono:  "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --maxw: 1280px;
+    --gutter: clamp(20px, 4vw, 56px);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bone);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Paper grain overlay — subtle SVG noise */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.16  0 0 0 0 0.18  0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  ::selection { background: var(--terracotta); color: var(--bone); }
+
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  /* -------- Eyebrows / labels -------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 500;
+  }
+  .eyebrow .dot {
+    display: inline-block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    transform: translateY(-2px);
+    margin-right: 8px;
+  }
+
+  /* -------- Type -------- */
+  h1, h2, h3, h4 {
+    font-family: var(--serif);
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  h1 {
+    font-size: clamp(48px, 7.2vw, 104px);
+    line-height: 0.98;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  h2 {
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.02;
+  }
+  h3 {
+    font-size: clamp(22px, 2vw, 28px);
+    line-height: 1.15;
+  }
+  .italic-serif { font-style: italic; font-weight: 300; }
+
+  p { margin: 0; color: var(--ink-soft); }
+  .lede {
+    font-family: var(--sans);
+    font-size: clamp(16px, 1.2vw, 18px);
+    color: var(--slate);
+    max-width: 46ch;
+    line-height: 1.55;
+  }
+
+  /* -------- Header -------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    background: rgba(243,238,229,0.85);
+    backdrop-filter: saturate(140%) blur(8px);
+    -webkit-backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid var(--rule);
+    z-index: 50;
+  }
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 18px 0;
+    gap: 24px;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .wordmark .sep {
+    display: inline-block;
+    width: 22px;
+    height: 1px;
+    background: var(--ink);
+    transform: translateY(-5px);
+  }
+  .wordmark em { font-style: italic; font-weight: 300; color: var(--ink-soft); }
+
+  nav.primary {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+  }
+  nav.primary a {
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  nav.primary a:hover { color: var(--terracotta); }
+
+  .header-right { display: flex; justify-content: flex-end; align-items: center; gap: 14px; }
+  .pill-quote {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: transparent;
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .pill-quote:hover { background: var(--ink); color: var(--bone); }
+
+  /* -------- Hero -------- */
+  .hero {
+    padding-top: clamp(56px, 9vw, 120px);
+    padding-bottom: clamp(56px, 7vw, 96px);
+    position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(40px, 6vw, 100px);
+    align-items: end;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 18px;
+    margin-bottom: clamp(40px, 6vw, 72px);
+  }
+  .hero-meta .right {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .hero h1 .line-2 {
+    display: block;
+    color: var(--ink-soft);
+  }
+  .hero-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-bottom: 8px;
+  }
+  .hero-aside .stat {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+  .hero-aside .stat .num {
+    font-family: var(--serif);
+    font-size: 44px;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+  .hero-aside .stat .num em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .hero-aside .stat .lbl {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-top: 6px;
+  }
+  .hero-actions {
+    margin-top: clamp(36px, 5vw, 56px);
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--terracotta);
+    color: var(--bone);
+    border: 0;
+    padding: 18px 28px;
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+  .btn-primary:hover { background: var(--terracotta-d); }
+  .btn-primary:active { transform: translateY(1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 17px 26px;
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .btn-ghost:hover { background: var(--ink); color: var(--bone); }
+  .hero-foot {
+    margin-top: clamp(56px, 7vw, 84px);
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    border-top: 1px solid var(--rule);
+    padding-top: 18px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  /* -------- Brands strip -------- */
+  .brands {
+    padding: clamp(48px, 6vw, 80px) 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--bone-2);
+  }
+  .brands-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 36px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .brands-head h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(22px, 2vw, 28px);
+    color: var(--ink);
+  }
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .brand-cell {
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 16px 24px;
+    text-align: center;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand-cell .ticker {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate-2);
+  }
+  .brand-cell .name {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .brand-cell:hover .name { font-style: italic; color: var(--terracotta); }
+
+  /* -------- Section base -------- */
+  section.block {
+    padding: clamp(80px, 10vw, 140px) 0;
+    position: relative;
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: clamp(32px, 5vw, 80px);
+    align-items: end;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 28px;
+    margin-bottom: clamp(48px, 6vw, 80px);
+  }
+  .section-head .index {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .section-head h2 .italic-serif { color: var(--ink-soft); }
+  .section-head p {
+    color: var(--slate);
+    max-width: 50ch;
+    font-size: 15px;
+  }
+
+  /* -------- How it works -------- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .step {
+    padding: 36px 32px 40px 0;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 280px;
+  }
+  .step:last-child { border-right: 0; padding-right: 0; }
+  .step .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 72px;
+    line-height: 1;
+    color: var(--terracotta);
+    letter-spacing: -0.02em;
+  }
+  .step h3 { font-size: 24px; margin-top: 4px; }
+  .step p { color: var(--slate); font-size: 15px; max-width: 36ch; }
+  .step .micro {
+    margin-top: auto;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate-2);
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* -------- Why us -------- */
+  .why {
+    background: var(--bone-2);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .why-cell {
+    padding: 40px 28px 44px 0;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .why-cell:last-child { border-right: 0; }
+  .why-cell .ticker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .why-cell h3 {
+    font-size: 22px;
+  }
+  .why-cell h3 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .why-cell p { font-size: 14.5px; color: var(--slate); max-width: 32ch; }
+
+  /* -------- FAQ -------- */
+  .faq-list {
+    border-top: 1px solid var(--rule-strong);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 0;
+    display: grid;
+    grid-template-columns: 64px 1fr 1.2fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .faq-item .idx {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate-2);
+    padding-top: 6px;
+  }
+  .faq-item h3 {
+    font-size: clamp(20px, 1.8vw, 26px);
+    line-height: 1.2;
+  }
+  .faq-item h3 em { font-style: italic; font-weight: 300; }
+  .faq-item p { font-size: 15px; color: var(--slate); max-width: 52ch; }
+
+  /* -------- Final CTA -------- */
+  .final-cta {
+    background: var(--ink);
+    color: var(--bone);
+    padding: clamp(80px, 10vw, 140px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at 80% 120%, rgba(181,80,58,0.22), transparent 60%),
+      radial-gradient(ellipse at 0% -20%, rgba(217,205,182,0.08), transparent 50%);
+  }
+  .final-cta .wrap { position: relative; z-index: 2; }
+  .final-cta .eyebrow { color: rgba(243,238,229,0.6); }
+  .final-cta .eyebrow .dot { background: var(--terracotta); }
+  .final-cta h2 {
+    color: var(--bone);
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.98;
+    margin-top: 24px;
+    max-width: 14ch;
+  }
+  .final-cta h2 em { font-style: italic; font-weight: 300; color: var(--sand); }
+  .final-cta .row {
+    margin-top: clamp(40px, 5vw, 64px);
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    align-items: end;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(243,238,229,0.18);
+    padding-top: 32px;
+  }
+  .final-cta p { color: rgba(243,238,229,0.7); max-width: 42ch; font-size: 15px; }
+  .final-cta .btn-primary { background: var(--terracotta); }
+  .final-cta .btn-primary:hover { background: #C75D45; }
+
+  /* -------- Footer -------- */
+  footer.site {
+    background: var(--bone);
+    border-top: 1px solid var(--rule);
+    padding: 56px 0 36px;
+  }
+  .foot-top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 32px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 36px;
+  }
+  .foot-top h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 14px;
+  }
+  .foot-top ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .foot-top a { color: var(--ink-soft); font-size: 14px; }
+  .foot-top a:hover { color: var(--terracotta); }
+  .foot-mark p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--ink);
+    max-width: 28ch;
+  }
+  .foot-mark p em { font-style: italic; font-weight: 300; }
+  .foot-bot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* -------- Page divider between mock screens -------- */
+  .page-divider {
+    background: var(--bone-2);
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 18px 0;
+  }
+  .page-divider .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .page-divider .marker { color: var(--terracotta); }
+  .page-divider .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    margin: 0 24px;
+  }
+
+  /* -------- FORM PAGE -------- */
+  .form-page {
+    padding: clamp(64px, 8vw, 120px) 0;
+  }
+  .form-head {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(40px, 6vw, 96px);
+    align-items: end;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 36px;
+    margin-bottom: clamp(48px, 6vw, 72px);
+  }
+  .form-head h1 {
+    font-size: clamp(44px, 6vw, 84px);
+    line-height: 1;
+  }
+  .form-head h1 em { font-style: italic; font-weight: 300; }
+  .form-head .lede { font-size: 16px; color: var(--slate); }
+
+  .form-shell {
+    display: grid;
+    grid-template-columns: 0.9fr 2.1fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: start;
+  }
+  .form-side {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+  }
+  .form-side ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .form-side li {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+    align-items: baseline;
+  }
+  .form-side li .n {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--slate-2);
+  }
+  .form-side li .t {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--slate);
+  }
+  .form-side li.active .n { color: var(--terracotta); }
+  .form-side li.active .t { color: var(--ink); font-style: italic; }
+
+  .device-block {
+    border-top: 1px solid var(--rule-strong);
+    padding-top: 28px;
+    margin-bottom: 36px;
+  }
+  .device-block-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+  }
+  .device-block-head .lbl {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .device-block-head .remove {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate-2);
+    background: none;
+    border: 0;
+    padding: 0;
+  }
+  .device-block-head .remove:hover { color: var(--terracotta); }
+
+  .field { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+  .field label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .field input[type="text"],
+  .field input[type="tel"],
+  .field input[type="email"],
+  .field textarea {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 12px 0 14px;
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 180ms ease;
+  }
+  .field input::placeholder, .field textarea::placeholder {
+    color: var(--slate-2);
+    font-style: italic;
+    font-weight: 300;
+  }
+  .field input:focus, .field textarea:focus { border-color: var(--terracotta); }
+  .field textarea { resize: vertical; min-height: 96px; font-size: 16px; font-family: var(--sans); }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    position: relative;
+  }
+  .chip input { position: absolute; opacity: 0; inset: 0; }
+  .chip span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: var(--bone);
+    cursor: pointer;
+    transition: all 180ms ease;
+  }
+  .chip span::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--sand);
+    display: inline-block;
+  }
+  .chip:hover span { border-color: var(--ink); }
+  .chip input:checked ~ span {
+    background: var(--ink);
+    color: var(--bone);
+    border-color: var(--ink);
+  }
+  .chip input:checked ~ span::before { background: var(--terracotta); }
+
+  .conditional-note {
+    margin-top: 18px;
+    padding: 18px 20px;
+    background: var(--bone-2);
+    border-left: 2px solid var(--terracotta);
+  }
+  .conditional-note .lbl {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .conditional-note textarea {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+    resize: vertical;
+    min-height: 72px;
+  }
+
+  .add-device {
+    width: 100%;
+    background: transparent;
+    border: 1px dashed var(--rule-strong);
+    padding: 22px;
+    border-radius: 2px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    transition: all 180ms ease;
+    margin-bottom: 56px;
+  }
+  .add-device:hover {
+    border-color: var(--terracotta);
+    color: var(--terracotta);
+    background: var(--bone-2);
+  }
+  .add-device .plus {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    margin-right: 10px;
+    vertical-align: -3px;
+    color: var(--terracotta);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+  .submit-row {
+    border-top: 1px solid var(--rule-strong);
+    padding-top: 32px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .submit-row .note {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--slate);
+    max-width: 38ch;
+  }
+  .btn-submit {
+    background: var(--terracotta);
+    color: var(--bone);
+    border: 0;
+    padding: 22px 36px;
+    border-radius: 2px;
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 180ms ease;
+  }
+  .btn-submit:hover { background: var(--terracotta-d); }
+
+  /* -------- THANK YOU PAGE -------- */
+  .thanks {
+    padding: clamp(80px, 10vw, 140px) 0;
+  }
+  .thanks-head {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 36px;
+    margin-bottom: clamp(48px, 6vw, 72px);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(40px, 6vw, 96px);
+    align-items: end;
+  }
+  .thanks-head h1 {
+    font-size: clamp(44px, 6vw, 88px);
+    line-height: 1;
+  }
+  .thanks-head h1 em { font-style: italic; font-weight: 300; }
+  .thanks-head .lede { font-size: 16px; color: var(--slate); }
+
+  .next-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .next-card {
+    padding: 40px 28px 40px 0;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 320px;
+  }
+  .next-card:last-child { border-right: 0; padding-right: 0; }
+  .next-card .ticker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .next-card .stage {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--terracotta);
+    letter-spacing: -0.02em;
+  }
+  .next-card h3 { font-size: 22px; }
+  .next-card p { color: var(--slate); font-size: 14.5px; max-width: 32ch; }
+  .next-card .micro {
+    margin-top: auto;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate-2);
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+
+  /* -------- Responsive -------- */
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-aside { flex-direction: row; flex-wrap: wrap; }
+    .hero-aside .stat { flex: 1 1 200px; }
+    .section-head { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .step:nth-child(2) { border-right: 0; }
+    .step:nth-child(3) { grid-column: span 2; border-right: 0; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .why-cell:nth-child(2) { border-right: 0; }
+    .brand-grid { grid-template-columns: repeat(4, 1fr); }
+    .form-shell { grid-template-columns: 1fr; }
+    .form-side { position: static; }
+    .form-head, .thanks-head { grid-template-columns: 1fr; }
+    .next-cards { grid-template-columns: 1fr; }
+    .next-card { border-right: 0; border-bottom: 1px solid var(--rule); padding-right: 0; }
+    .foot-top { grid-template-columns: 1fr 1fr; }
+    .faq-item { grid-template-columns: 40px 1fr; }
+    .faq-item p { grid-column: 2; }
+  }
+  @media (max-width: 768px) {
+    nav.primary { display: none; }
+    .header-inner { grid-template-columns: 1fr auto; }
+    .hero-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .hero-foot { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .brand-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: 1fr; }
+    .step { border-right: 0 !important; padding-right: 0; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-cell { border-right: 0; padding-right: 0; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .foot-top { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====================== HOMEPAGE ====================== -->
+<header class="site">
+  <div class="wrap header-inner">
+    <a href="#" class="wordmark">
+      Sell My Phone Sydney <span class="sep"></span> <em>est. Surry Hills</em>
+    </a>
+    <nav class="primary">
+      <a href="#brands">Brands</a>
+      <a href="#how">How it works</a>
+      <a href="#why">Why us</a>
+      <a href="#faq">FAQ</a>
+      <a href="#form">Get a quote</a>
+    </nav>
+    <div class="header-right">
+      <span class="eyebrow"><span class="dot"></span>Open · Mon–Sat</span>
+      <a href="#form" class="pill-quote">Get a quote</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span class="eyebrow"><span class="dot"></span>Vol. 01 — Sydney buyback, considered.</span>
+      <span class="right">Issued · Today</span>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <h1>
+          Sell your phone.
+          <span class="line-2 italic-serif">Get paid today.</span>
+        </h1>
+        <p class="lede" style="margin-top: clamp(28px, 3vw, 40px);">
+          A straight, honest buyback for Sydneysiders. Tell us what you have, we send a fair quote in minutes, and you walk out paid by PayID before the queue at Single O finishes.
+        </p>
+        <div class="hero-actions">
+          <a href="#form" class="btn-primary">Get my quote</a>
+          <a href="#how" class="btn-ghost">How it works</a>
+        </div>
+      </div>
+
+      <aside class="hero-aside">
+        <div class="stat">
+          <div class="num"><em>04</em> min</div>
+          <div class="lbl">Avg. time to firm quote</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>1,840</em>+</div>
+          <div class="lbl">Phones bought across Greater Sydney</div>
+        </div>
+        <div class="stat">
+          <div class="num">PayID <em>·</em> Cash</div>
+          <div class="lbl">Paid same day, no waiting periods</div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="hero-foot">
+      <span>CBD · Surry Hills · Newtown · Parramatta · Bondi</span>
+      <span>ABN 47 642 119 028 — Licensed second-hand dealer</span>
+    </div>
+  </div>
+</section>
+
+<!-- Brands strip -->
+<section class="brands" id="brands">
+  <div class="wrap">
+    <div class="brands-head">
+      <span class="eyebrow"><span class="dot"></span>The Index — Brands we buy</span>
+      <h3>Apple to Xiaomi. <em>If it rings, we&rsquo;ll price it.</em></h3>
+    </div>
+
+    <div class="brand-grid">
+      <div class="brand-cell"><span class="ticker">A01</span><span class="name">iPhone</span></div>
+      <div class="brand-cell"><span class="ticker">S02</span><span class="name">Samsung</span></div>
+      <div class="brand-cell"><span class="ticker">G03</span><span class="name">Pixel</span></div>
+      <div class="brand-cell"><span class="ticker">O04</span><span class="name">OnePlus</span></div>
+      <div class="brand-cell"><span class="ticker">P05</span><span class="name">Oppo</span></div>
+      <div class="brand-cell"><span class="ticker">X06</span><span class="name">Xiaomi</span></div>
+      <div class="brand-cell"><span class="ticker">Y07</span><span class="name">Sony</span></div>
+      <div class="brand-cell"><span class="ticker">I08</span><span class="name">iPad</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="index">§ 01 — Process</span>
+      <div>
+        <h2>How it works. <span class="italic-serif">Three quiet steps.</span></h2>
+        <p style="margin-top: 16px;">No back-and-forth, no shifting numbers at pickup. We respect your time the way a good barista respects the milk.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="num">i</div>
+        <h3>Tell us what you have</h3>
+        <p>Model, storage, condition. Photos welcome but never required. Two minutes, no account.</p>
+        <span class="micro">Step One · Brief</span>
+      </div>
+      <div class="step">
+        <div class="num">ii</div>
+        <h3>We send a fair quote</h3>
+        <p>A real number from a real person, benchmarked to today&rsquo;s Sydney market — held firm for 7 days.</p>
+        <span class="micro">Step Two · Quote</span>
+      </div>
+      <div class="step">
+        <div class="num">iii</div>
+        <h3>Drop off or we come to you</h3>
+        <p>Walk into our CBD office, or book a free metro pickup. Paid by PayID the moment it&rsquo;s checked.</p>
+        <span class="micro">Step Three · Settle</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why us -->
+<section class="block why" id="why">
+  <div class="wrap">
+    <div class="section-head" style="border-bottom-color: var(--rule);">
+      <span class="index">§ 02 — Principles</span>
+      <div>
+        <h2>Why <span class="italic-serif">us</span>, exactly.</h2>
+        <p style="margin-top: 16px;">Four small commitments that, in our experience, make all the difference. We&rsquo;ve seen what the chain stores quote at the counter.</p>
+      </div>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-cell">
+        <span class="ticker">01 / Pricing</span>
+        <h3>No bait <em>pricing</em></h3>
+        <p>The number we email is the number you&rsquo;re paid. We don&rsquo;t &ldquo;re-inspect&rdquo; on the day.</p>
+      </div>
+      <div class="why-cell">
+        <span class="ticker">02 / Payment</span>
+        <h3>Same-day <em>payment</em></h3>
+        <p>PayID, bank transfer, or cash on collection. Funds clear before you&rsquo;re back on George Street.</p>
+      </div>
+      <div class="why-cell">
+        <span class="ticker">03 / Local</span>
+        <h3>Sydney <em>based</em></h3>
+        <p>A team in the CBD with eyes on the harbour. Not a 1300 number routed to a warehouse in Dandenong.</p>
+      </div>
+      <div class="why-cell">
+        <span class="ticker">04 / Privacy</span>
+        <h3>Data wiped <em>properly</em></h3>
+        <p>Certified factory reset, eSIM removed, Find My disabled. You receive a written wipe certificate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="index">§ 03 — Answers</span>
+      <div>
+        <h2>Common <span class="italic-serif">questions.</span></h2>
+        <p style="margin-top: 16px;">If yours isn&rsquo;t here, text the office on 0488 SYD PHN. A human will reply, usually within the hour.</p>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <span class="idx">Q.01</span>
+        <h3>How quickly will I <em>get paid?</em></h3>
+        <p>Same day, every day. Drop-offs in the CBD are settled by PayID before you leave reception. Metro pickups are paid the moment our technician confirms condition — usually within ten minutes of arrival.</p>
+      </div>
+      <div class="faq-item">
+        <span class="idx">Q.02</span>
+        <h3>What if the screen is <em>cracked?</em></h3>
+        <p>Still worth quoting. We buy phones in every condition — even water-damaged or non-booting. The quote simply reflects the work needed. We&rsquo;ll tell you exactly what we&rsquo;re deducting and why.</p>
+      </div>
+      <div class="faq-item">
+        <span class="idx">Q.03</span>
+        <h3>Do I need the <em>box and charger?</em></h3>
+        <p>Not at all. They add a small premium — typically $20–$40 on flagship handsets — but the device alone is enough. Locked, iCloud-locked, or carrier-locked phones can&rsquo;t be purchased.</p>
+      </div>
+      <div class="faq-item">
+        <span class="idx">Q.04</span>
+        <h3>Where in Sydney are <em>you?</em></h3>
+        <p>Our office sits a two-minute walk from Wynyard, on the third floor of a sandstone building on York Street. Free pickup runs across the CBD, Inner West, Eastern Suburbs, Lower North Shore, and Parramatta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA dark -->
+<section class="final-cta">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>The invitation</span>
+    <h2>Ready <span class="italic-serif">when you are.</span></h2>
+    <div class="row">
+      <p>Two minutes for a number, a day to be paid. Bring the old handset out of the drawer — let it fund something you&rsquo;ll actually use.</p>
+      <a href="#form" class="btn-primary">Start my quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-mark">
+        <span class="eyebrow"><span class="dot"></span>Sell My Phone Sydney</span>
+        <p style="margin-top: 18px;">A small Sydney buyback, run with the patience of a <em>good editor.</em></p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>Level 3, 99 York Street</li>
+          <li>Sydney NSW 2000</li>
+          <li>Mon–Sat · 9am–6pm</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0488793746">0488 SYD PHN</a></li>
+          <li><a href="mailto:hello@sellmyphonesydney.com.au">hello@sellmyphonesydney.com.au</a></li>
+          <li>PayID · @sellmyphonesyd</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Catalogue</h4>
+        <ul>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#form">Get a quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Sell My Phone Sydney · ABN 47 642 119 028</span>
+      <span>Privacy · Terms · Wipe Policy</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ====================== FORM PAGE ====================== -->
+<div class="page-divider">
+  <div class="wrap">
+    <span class="marker">// PAGE 02</span>
+    <span class="rule"></span>
+    <span>The Quote Form</span>
+  </div>
+</div>
+
+<section class="form-page" id="form">
+  <div class="wrap">
+    <div class="form-head">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Quote · Step one of one</span>
+        <h1 style="margin-top: 28px;">
+          Let&rsquo;s see what <em>you&rsquo;ve got.</em>
+        </h1>
+      </div>
+      <p class="lede">
+        Fill the brief — model, condition, a note if anything&rsquo;s amiss — and we&rsquo;ll have a firm quote back to you in the time it takes to walk from Wynyard to Customs House.
+      </p>
+    </div>
+
+    <div class="form-shell">
+      <aside class="form-side">
+        <span class="eyebrow"><span class="dot"></span>Process</span>
+        <ol style="margin-top: 20px;">
+          <li class="active"><span class="n">01.</span><span class="t">Your devices</span></li>
+          <li><span class="n">02.</span><span class="t">Your details</span></li>
+          <li><span class="n">03.</span><span class="t">Quote in your inbox</span></li>
+          <li><span class="n">04.</span><span class="t">Drop-off or pickup</span></li>
+          <li><span class="n">05.</span><span class="t">Paid by PayID</span></li>
+        </ol>
+      </aside>
+
+      <form onsubmit="event.preventDefault();" novalidate>
+        <!-- Device block -->
+        <div class="device-block">
+          <div class="device-block-head">
+            <span class="lbl">Device 01 / iPhone, Samsung, etc.</span>
+            <button type="button" class="remove">Remove</button>
+          </div>
+
+          <div class="field">
+            <label for="model">Model &amp; storage</label>
+            <input id="model" type="text" placeholder="e.g. iPhone 14 Pro · 256GB · Deep Purple" />
+          </div>
+
+          <div class="field">
+            <label>Condition</label>
+            <div class="chips" role="radiogroup" aria-label="Condition">
+              <label class="chip">
+                <input type="radio" name="condition" value="new" />
+                <span>Brand new</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="condition" value="like-new" checked />
+                <span>Like new</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="condition" value="good" />
+                <span>Good</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="condition" value="issues" />
+                <span>Has issues</span>
+              </label>
+            </div>
+
+            <div class="conditional-note">
+              <span class="lbl">Tell us what&rsquo;s wrong</span>
+              <textarea placeholder="Hairline crack top-left corner, battery health 84%, otherwise tidy. Comes with original box.">Hairline crack top-left corner, battery health 84%, otherwise tidy. Comes with original box.</textarea>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="add-device">
+          <span class="plus">+</span> Add another device
+        </button>
+
+        <!-- Contact -->
+        <div class="field">
+          <label>Your details</label>
+        </div>
+        <div class="contact-grid">
+          <div class="field" style="margin-bottom: 0;">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="First and last" />
+          </div>
+          <div class="field" style="margin-bottom: 0;">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" placeholder="04xx xxx xxx" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@something.com.au" />
+        </div>
+
+        <div class="submit-row">
+          <span class="note">By submitting, you agree to our privacy policy. We never sell your details.</span>
+          <button class="btn-submit" type="submit">Send me my quote</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== THANK YOU PAGE ====================== -->
+<div class="page-divider">
+  <div class="wrap">
+    <span class="marker">// PAGE 03</span>
+    <span class="rule"></span>
+    <span>Confirmation</span>
+  </div>
+</div>
+
+<section class="thanks">
+  <div class="wrap">
+    <div class="thanks-head">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Received · Reference #SMPS-04821</span>
+        <h1 style="margin-top: 28px;">Got it. <em>Quote on the way.</em></h1>
+      </div>
+      <p class="lede">
+        Your brief is now on the desk of Marco, our senior valuer. Expect a number — and an honest one — within the hour, Monday to Saturday.
+      </p>
+    </div>
+
+    <div class="next-cards">
+      <div class="next-card">
+        <span class="ticker">Next · 01</span>
+        <div class="stage">i.</div>
+        <h3>Check your inbox</h3>
+        <p>A line-itemed quote will arrive from hello@sellmyphonesydney.com.au — usually within 60 minutes. Mark us as a sender so it doesn&rsquo;t land in Promotions.</p>
+        <span class="micro">ETA · within the hour</span>
+      </div>
+      <div class="next-card">
+        <span class="ticker">Next · 02</span>
+        <div class="stage">ii.</div>
+        <h3>Pick a time</h3>
+        <p>Reply with a slot that suits — a CBD drop-off, or a free pickup anywhere from Bondi to Parramatta. We hold the quote for seven full days.</p>
+        <span class="micro">Window · Mon–Sat 9am–6pm</span>
+      </div>
+      <div class="next-card">
+        <span class="ticker">Next · 03</span>
+        <div class="stage">iii.</div>
+        <h3>Get paid by PayID</h3>
+        <p>We confirm the device matches the brief, wipe it properly, and transfer on the spot. You walk away with a wipe certificate and the funds already cleared.</p>
+        <span class="micro">Settlement · same day</span>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid var(--rule); margin-top: 64px; padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+      <span class="eyebrow">Need to talk to a human? · 0488 SYD PHN</span>
+      <a href="#" class="eyebrow" style="color: var(--terracotta);">Back to top &uarr;</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

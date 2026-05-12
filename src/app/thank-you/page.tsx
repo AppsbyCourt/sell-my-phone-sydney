@@ -1,71 +1,88 @@
 import Link from "next/link";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata = {
-  title: "Quote on the way — Sell My Phone Sydney",
-  description: "Thanks for your enquiry. We'll be in touch shortly.",
+  title: "Thanks — we'll be in touch",
+  description: "Your quote request is in.",
 };
 
-export default function ThankYouPage() {
+export default function ThankYou() {
   return (
-    <main className="hero-glow relative grid min-h-dvh place-items-center px-6">
-      <div className="mx-auto max-w-xl text-center">
-        <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-500/15 ring-1 ring-emerald-500/30">
-          <svg
-            className="h-8 w-8 text-emerald-400"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden
-          >
-            <path
-              fillRule="evenodd"
-              d="M16.704 5.296a1 1 0 0 1 0 1.408l-7.5 7.5a1 1 0 0 1-1.408 0l-3.5-3.5a1 1 0 1 1 1.408-1.408L8.5 12.092l6.796-6.796a1 1 0 0 1 1.408 0Z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </div>
+    <>
+      <SiteHeader />
+      <main className="flex-1 relative overflow-hidden">
+        <span
+          aria-hidden
+          className="absolute -top-20 -left-20 w-60 h-60 rounded-full bg-wattle border-[2.5px] border-ink"
+        />
+        <span
+          aria-hidden
+          className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-pink border-[2.5px] border-ink"
+        />
 
-        <h1 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-5xl">
-          You&apos;re all set.
-        </h1>
-        <p className="mt-4 text-balance text-neutral-300">
-          We&apos;ve received your details and will be in touch{" "}
-          <span className="font-semibold text-emerald-400">within 2 hours</span>{" "}
-          with your guaranteed offer.
-        </p>
+        <section className="relative mx-auto max-w-4xl px-6 md:px-8 pt-20 md:pt-28 pb-24 text-center">
+          <span className="eyebrow mb-7 inline-block rise rise-1" style={{ background: "var(--tomato)", color: "var(--cream)" }}>
+            ● Received · {new Date().toLocaleDateString("en-AU", { day: "numeric", month: "short" })}
+          </span>
+          <h1 className="display text-[clamp(52px,8vw,108px)] rise rise-2">
+            Got it.<br />
+            <span className="italic-soft text-tomato">Quote on the way.</span>
+          </h1>
+          <p className="mt-8 max-w-2xl mx-auto text-[19px] md:text-[21px] leading-relaxed text-aubergine rise rise-3">
+            A real person is reviewing your devices now. You&apos;ll hear back from us — usually within a couple of hours during business hours, first thing tomorrow if it&apos;s late.
+          </p>
 
-        <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-left">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-emerald-400">
-            What happens next
-          </h2>
-          <ol className="mt-4 space-y-3 text-sm text-neutral-300">
-            <li className="flex gap-3">
-              <span className="font-mono text-emerald-400">01</span>
-              <span>We review your device details and prepare your offer.</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="font-mono text-emerald-400">02</span>
-              <span>
-                You&apos;ll get a call or SMS from a Sydney number with your
-                guaranteed quote.
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <span className="font-mono text-emerald-400">03</span>
-              <span>
-                Accept the offer and we&apos;ll arrange same-day pickup or
-                drop-off, plus instant payment.
-              </span>
-            </li>
+          <ol className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-7 text-left rise rise-4">
+            {[
+              { n: "01", title: "Check your email", body: "We'll reply to the address you gave us. If nothing's landed in a few hours, check spam.", bg: "var(--wattle)", rot: "-1deg", mt: "0" },
+              { n: "02", title: "Quote arrives", body: "A real number, not a range. If we need a photo of anything, we'll ask.", bg: "var(--pink)", rot: "1deg", mt: "1.5rem" },
+              { n: "03", title: "Pick a time", body: "CBD meet-up or free pickup in metro Sydney. Paid same day.", bg: "var(--tomato)", color: "var(--cream)", rot: "-1deg", mt: "0" },
+            ].map((step, i) => (
+              <li
+                key={step.n}
+                className="sticker px-7 pt-12 pb-8 relative"
+                style={{ background: step.bg, color: step.color ?? "var(--ink)", transform: `rotate(${step.rot})`, marginTop: step.mt }}
+              >
+                <span
+                  className="absolute -top-6 left-6 grid place-items-center chunk text-[24px]"
+                  style={{
+                    width: 52,
+                    height: 52,
+                    borderRadius: "50%",
+                    border: "2.5px solid var(--ink)",
+                    background: i === 2 ? "var(--cream)" : "var(--ink)",
+                    color: i === 2 ? "var(--tomato)" : "var(--cream)",
+                    transform: "rotate(-8deg)",
+                  }}
+                >
+                  {step.n}
+                </span>
+                <h3 className="chunk text-[24px] mt-3 leading-tight">{step.title}</h3>
+                <p className="mt-2.5" style={{ color: i === 2 ? "var(--cream)" : "var(--aubergine)" }}>
+                  {step.body}
+                </p>
+              </li>
+            ))}
           </ol>
-        </div>
 
-        <Link
-          href="/"
-          className="mt-10 inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-neutral-100 transition hover:border-white/30 hover:bg-white/5"
-        >
-          Back to home
-        </Link>
-      </div>
-    </main>
+          <div className="mt-20 sticker px-7 py-8 bg-cream-deep flex flex-col md:flex-row items-center justify-between gap-6 text-left rise rise-5">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-wider text-aubergine mb-1.5">Need to reach us sooner?</p>
+              <a
+                href="mailto:hello@sellmyphonesydney.com.au"
+                className="chunk text-[22px] md:text-[26px] hover:text-tomato transition"
+              >
+                hello@sellmyphonesydney.com.au
+              </a>
+            </div>
+            <Link href="/" className="btn btn-yellow">
+              ← Back to home
+            </Link>
+          </div>
+        </section>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

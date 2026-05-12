@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SMPS — Design Directions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bone: #f4efe6;
+      --ink: #1a1d24;
+      --ink-soft: #2c3038;
+      --muted: #6b6862;
+      --terracotta: #c4593b;
+      --harbor: #1e3a4c;
+      --hairline: rgba(26,29,36,0.12);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bone);
+      color: var(--ink);
+      font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 1440px; margin: 0 auto; padding: 4rem 2.5rem 6rem; }
+    .head { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 4rem; }
+    @media (min-width: 900px) { .head { grid-template-columns: 1.4fr 1fr; align-items: end; } }
+    .eyebrow {
+      font-family: 'Geist Mono', ui-monospace, monospace;
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 400; letter-spacing: -0.02em; line-height: 0.95;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      margin: 0.5rem 0 0;
+    }
+    h1 .italic { font-style: italic; color: var(--harbor); }
+    .intro { font-size: 1.05rem; line-height: 1.6; color: var(--ink-soft); max-width: 36rem; }
+
+    .grid {
+      display: grid; gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1100px) { .grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .card {
+      display: flex; flex-direction: column;
+      background: transparent;
+      border: 1px solid var(--hairline);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none; color: inherit;
+    }
+    .card:hover { border-color: var(--terracotta); transform: translateY(-2px); }
+    .card .swatch {
+      height: 9rem; display: flex; align-items: flex-end; justify-content: space-between;
+      padding: 1rem; gap: 0.5rem;
+    }
+    .swatch .id {
+      font-family: 'Geist Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em;
+      background: rgba(255,255,255,0.7); color: var(--ink); padding: 0.25rem 0.5rem; border-radius: 0.25rem;
+    }
+    .swatch .palette { display: flex; gap: 0.25rem; }
+    .swatch .palette span {
+      width: 0.9rem; height: 0.9rem; border-radius: 50%; border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    /* per-card palettes */
+    .c-01 .swatch { background: linear-gradient(135deg, #ece4d4 0%, #d4c5a9 100%); }
+    .c-01 .swatch .palette span:nth-child(1){background:#f4efe6} .c-01 .swatch .palette span:nth-child(2){background:#d4c5a9} .c-01 .swatch .palette span:nth-child(3){background:#1e3a4c} .c-01 .swatch .palette span:nth-child(4){background:#c4593b}
+
+    .c-02 .swatch { background: linear-gradient(180deg, #c3ddee 0%, #f1e5cd 100%); }
+    .c-02 .swatch .palette span:nth-child(1){background:#f1e5cd} .c-02 .swatch .palette span:nth-child(2){background:#a7c9b9} .c-02 .swatch .palette span:nth-child(3){background:#5887a7} .c-02 .swatch .palette span:nth-child(4){background:#ecc94b}
+
+    .c-03 .swatch { background: linear-gradient(135deg, #c4593b 0%, #e0a458 60%, #f3ead4 100%); }
+    .c-03 .swatch .palette span:nth-child(1){background:#f3ead4} .c-03 .swatch .palette span:nth-child(2){background:#e0a458} .c-03 .swatch .palette span:nth-child(3){background:#c4593b} .c-03 .swatch .palette span:nth-child(4){background:#2a2622}
+
+    .c-04 .swatch { background: linear-gradient(135deg, #8a9a7b 0%, #c8c2a8 60%, #f3eee0 100%); }
+    .c-04 .swatch .palette span:nth-child(1){background:#f3eee0} .c-04 .swatch .palette span:nth-child(2){background:#c8c2a8} .c-04 .swatch .palette span:nth-child(3){background:#8a9a7b} .c-04 .swatch .palette span:nth-child(4){background:#a6644a}
+
+    .c-05 .swatch { background: linear-gradient(135deg, #f4cf3a 0%, #f4ddb6 60%, #f1e5cd 100%); }
+    .c-05 .swatch .palette span:nth-child(1){background:#f1e5cd} .c-05 .swatch .palette span:nth-child(2){background:#f4cf3a} .c-05 .swatch .palette span:nth-child(3){background:#2a1e3c} .c-05 .swatch .palette span:nth-child(4){background:#e0533b}
+
+    .c-06 .swatch { background: linear-gradient(135deg, #1f2024 0%, #3a3d44 60%, #d6c9af 100%); }
+    .c-06 .swatch .palette span:nth-child(1){background:#1f2024} .c-06 .swatch .palette span:nth-child(2){background:#d6c9af} .c-06 .swatch .palette span:nth-child(3){background:#c4593b} .c-06 .swatch .palette span:nth-child(4){background:#5887a7}
+
+    .body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+    .body h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.5rem; letter-spacing: -0.01em; margin: 0; }
+    .body p { color: var(--ink-soft); margin: 0; line-height: 1.55; }
+    .open {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; color: var(--terracotta);
+      margin-top: auto; padding-top: 1rem;
+    }
+    .card:hover .open span { transform: translateX(3px); }
+    .open span { display: inline-block; transition: transform 0.2s; }
+
+    footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--hairline); color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="head">
+      <div>
+        <p class="eyebrow">Sell My Phone Sydney · 6 directions</p>
+        <h1>Pick a <span class="italic">direction.</span></h1>
+      </div>
+      <p class="intro">
+        Six self-contained design mockups, each rooted in a different Australian visual tradition.
+        Click any card to open the full homepage + form + thank-you page on one scrollable file.
+        Pick a winner and we'll port it onto the live Next.js site.
+      </p>
+    </div>
+
+    <div class="grid">
+      <a href="01-sandstone-editorial.html" class="card c-01">
+        <div class="swatch"><span class="id">01</span><div class="palette"><span></span><span></span><span></span><span></span></div></div>
+        <div class="body">
+          <h3>Sandstone Editorial</h3>
+          <p>Aesop-restraint meets Sydney sandstone. Bone paper, harbour ink, terracotta accent, Fraunces serif. Premium, considered, grown-up.</p>
+          <span class="open">Open mockup <span>→</span></span>
+        </div>
+      </a>
+
+      <a href="02-coastal-bondi.html" class="card c-02">
+        <div class="swatch"><span class="id">02</span><div class="palette"><span></span><span></span><span></span><span></span></div></div>
+        <div class="body">
+          <h3>Coastal Bondi</h3>
+          <p>Bondi at 7am — seafoam, sky-blue, warm sand, a touch of sun-yellow. Soft rounded corners, hand-drawn wave dividers, optimistic.</p>
+          <span class="open">Open mockup <span>→</span></span>
+        </div>
+      </a>
+
+      <a href="03-outback-ochre.html" class="card c-03">
+        <div class="swatch"><span class="id">03</span><div class="palette"><span></span><span></span><span></span><span></span></div></div>
+        <div class="body">
+          <h3>Outback Ochre</h3>
+          <p>Earth tones turned all the way up. Deep terracotta dominant, ochre, charcoal, cream. Bold geometric blocks, huge condensed display type.</p>
+          <span class="open">Open mockup <span>→</span></span>
+        </div>
+      </a>
+
+      <a href="04-eucalyptus-modern.html" class="card c-04">
+        <div class="swatch"><span class="id">04</span><div class="palette"><span></span><span></span><span></span><span></span></div></div>
+        <div class="body">
+          <h3>Eucalyptus Modern</h3>
+          <p>The quiet one. Sage-eucalyptus green, unbleached linen, soft terracotta accent. Botanical SVG details, rounded cards, Koala-but-refined.</p>
+          <span class="open">Open mockup <span>→</span></span>
+        </div>
+      </a>
+
+      <a href="05-sun-drenched-playful.html" class="card c-05">
+        <div class="swatch"><span class="id">05</span><div class="palette"><span></span><span></span><span></span><span></span></div></div>
+        <div class="body">
+          <h3>Sun-Drenched Playful</h3>
+          <p>Golden wattle yellow, deep aubergine, tomato red. Who Gives a Crap energy — squiggle decorations, sticker shapes, personality dialled up.</p>
+          <span class="open">Open mockup <span>→</span></span>
+        </div>
+      </a>
+
+      <a href="06-harbour-industrial.html" class="card c-06">
+        <div class="swatch"><span class="id">06</span><div class="palette"><span></span><span></span><span></span><span></span></div></div>
+        <div class="body">
+          <h3>Harbour Industrial</h3>
+          <p>Dark charcoal, sandstone cream, harbour-bridge rust orange. Mono-font tags, technical blueprint feel, structural grid. Grown-tradie-by-an-architect.</p>
+          <span class="open">Open mockup <span>→</span></span>
+        </div>
+      </a>
+    </div>
+
+    <footer>
+      Each mockup is one self-contained HTML file. Open in browser or compare side-by-side.
+      The current live site is the editorial baseline — these are the redirects to consider.
+    </footer>
+  </main>
+</body>
+</html>

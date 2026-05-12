@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sell My Phone Sydney — Outback Ochre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --terracotta:#B5391C;
+    --terracotta-deep:#8E2A12;
+    --ochre:#D8862B;
+    --rust:#D45A1F;
+    --cream:#F2E6CE;
+    --sand:#E8D6B3;
+    --charcoal:#1A1411;
+    --ink:#0E0A07;
+    --line:#1A1411;
+    --rule:3px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--charcoal);font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11"}
+  body{overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+
+  .display{font-family:'Archivo Black',sans-serif;letter-spacing:-0.03em;line-height:0.88;text-transform:uppercase}
+  .mono{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.12em;font-size:11px;font-weight:500}
+  .wrap{max-width:1440px;margin:0 auto;padding:0 40px}
+  .rule{height:var(--rule);background:var(--charcoal);width:100%}
+  .rule-cream{height:var(--rule);background:var(--cream);width:100%}
+
+  /* HEADER */
+  .topbar{background:var(--charcoal);color:var(--cream);padding:10px 0;border-bottom:var(--rule) solid var(--terracotta)}
+  .topbar .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .topbar .mono{color:var(--cream);opacity:0.85}
+  .topbar .mono b{color:var(--ochre);opacity:1;font-weight:700}
+
+  header.site{background:var(--cream);border-bottom:var(--rule) solid var(--charcoal);position:sticky;top:0;z-index:50}
+  .navrow{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px;padding:22px 0}
+  .wordmark{display:flex;align-items:center;gap:14px}
+  .wordmark .blockmark{width:44px;height:44px;background:var(--terracotta);position:relative}
+  .wordmark .blockmark::after{content:"";position:absolute;inset:8px;background:var(--charcoal);clip-path:polygon(0 0,100% 0,100% 100%,50% 60%,0 100%)}
+  .wordmark .name{font-family:'Archivo Black';font-size:18px;line-height:1;letter-spacing:-0.02em;text-transform:uppercase}
+  .wordmark .name span{display:block;color:var(--terracotta);font-size:11px;letter-spacing:0.18em;margin-top:4px;font-family:'JetBrains Mono';font-weight:500;text-transform:uppercase}
+  nav.main{display:flex;gap:36px;justify-content:center}
+  nav.main a{font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.06em}
+  nav.main a:hover{color:var(--terracotta)}
+  .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--terracotta);color:var(--cream);padding:14px 22px;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;border:var(--rule) solid var(--charcoal)}
+  .cta-btn:hover{background:var(--charcoal);color:var(--ochre)}
+  .cta-btn .dot{width:8px;height:8px;background:var(--ochre);display:inline-block}
+
+  /* HERO */
+  .hero{background:var(--cream);position:relative;overflow:hidden;border-bottom:var(--rule) solid var(--charcoal)}
+  .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:0;min-height:78vh}
+  .hero-left{padding:80px 40px 100px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+  .hero-right{background:var(--terracotta);color:var(--cream);padding:60px 48px;display:flex;flex-direction:column;justify-content:space-between;border-left:var(--rule) solid var(--charcoal);position:relative;overflow:hidden}
+  .hero-right::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:var(--ochre);right:-100px;top:-100px;z-index:0}
+  .hero-right::after{content:"";position:absolute;width:120px;height:120px;background:var(--charcoal);right:60px;bottom:80px;z-index:0}
+  .hero-right > *{position:relative;z-index:1}
+  .hero-meta{display:flex;gap:20px;align-items:center;margin-bottom:40px}
+  .hero-meta .pill{background:var(--charcoal);color:var(--ochre);padding:8px 14px;font-family:'JetBrains Mono';font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.14em}
+  .hero-meta .mono{font-weight:500}
+  h1.hero-h1{font-family:'Archivo Black';font-size:clamp(64px,9.5vw,168px);line-height:0.84;letter-spacing:-0.04em;text-transform:uppercase;color:var(--charcoal)}
+  h1.hero-h1 .red{color:var(--terracotta)}
+  h1.hero-h1 .underline{display:inline-block;border-bottom:8px solid var(--ochre);padding-bottom:6px}
+  .hero-sub{margin-top:36px;max-width:540px;font-size:19px;line-height:1.45;color:var(--charcoal);font-weight:500}
+  .hero-actions{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap}
+  .btn-primary{background:var(--charcoal);color:var(--cream);padding:20px 28px;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:0.1em;border:var(--rule) solid var(--charcoal);display:inline-flex;align-items:center;gap:14px}
+  .btn-primary:hover{background:var(--terracotta)}
+  .btn-primary .arrow{width:28px;height:2px;background:var(--ochre);position:relative}
+  .btn-primary .arrow::after{content:"";position:absolute;right:0;top:-4px;width:10px;height:10px;border-top:2px solid var(--ochre);border-right:2px solid var(--ochre);transform:rotate(45deg)}
+  .btn-ghost{background:transparent;color:var(--charcoal);padding:20px 24px;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:0.1em;border:var(--rule) solid var(--charcoal)}
+  .btn-ghost:hover{background:var(--charcoal);color:var(--cream)}
+
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:80px;border-top:var(--rule) solid var(--charcoal)}
+  .stat{padding:24px 24px 24px 0;border-right:var(--rule) solid var(--charcoal)}
+  .stat:last-child{border-right:0}
+  .stat .num{font-family:'Archivo Black';font-size:48px;line-height:1;letter-spacing:-0.03em;color:var(--terracotta)}
+  .stat .lbl{margin-top:8px;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;font-weight:600}
+
+  .quote-card{background:var(--cream);color:var(--charcoal);padding:24px;border:var(--rule) solid var(--charcoal);margin-bottom:24px}
+  .quote-card .device{font-family:'Archivo Black';font-size:22px;text-transform:uppercase;letter-spacing:-0.02em;line-height:1}
+  .quote-card .price{font-family:'Archivo Black';font-size:64px;line-height:1;color:var(--terracotta);margin-top:14px;letter-spacing:-0.03em}
+  .quote-card .meta{display:flex;justify-content:space-between;margin-top:18px;border-top:2px solid var(--charcoal);padding-top:12px}
+  .quote-card .meta span{font-family:'JetBrains Mono';font-size:10px;text-transform:uppercase;letter-spacing:0.12em;font-weight:500}
+  .quote-foot{font-size:13px;font-weight:600;line-height:1.5}
+  .quote-foot b{display:block;font-family:'Archivo Black';font-size:18px;text-transform:uppercase;margin-bottom:6px;letter-spacing:0.02em}
+
+  /* MARQUEE: brands */
+  .brands{background:var(--charcoal);color:var(--cream);padding:28px 0;border-bottom:var(--rule) solid var(--terracotta);overflow:hidden}
+  .brands-inner{display:flex;align-items:center;gap:64px;flex-wrap:wrap;justify-content:center}
+  .brands .label{font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--ochre);font-weight:500;border-right:2px solid var(--terracotta);padding-right:24px}
+  .brands .brand{font-family:'Archivo Black';font-size:22px;text-transform:uppercase;letter-spacing:-0.02em;color:var(--cream);opacity:0.95}
+  .brands .brand:hover{color:var(--ochre)}
+
+  /* HOW IT WORKS */
+  section.how{padding:120px 0 100px;background:var(--cream);border-bottom:var(--rule) solid var(--charcoal)}
+  .sec-head{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:end;margin-bottom:64px}
+  .sec-num{font-family:'Archivo Black';font-size:140px;line-height:0.8;color:var(--terracotta);letter-spacing:-0.04em}
+  .sec-title{font-family:'Archivo Black';font-size:clamp(40px,5.4vw,84px);line-height:0.88;letter-spacing:-0.03em;text-transform:uppercase;color:var(--charcoal);max-width:14ch}
+  .sec-title em{font-style:normal;color:var(--terracotta)}
+  .sec-eyebrow{font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;letter-spacing:0.16em;font-weight:500;color:var(--charcoal);padding-bottom:14px;border-bottom:2px solid var(--charcoal);display:inline-block;margin-bottom:20px}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:var(--rule) solid var(--charcoal)}
+  .step{padding:40px 32px 36px;border-right:var(--rule) solid var(--charcoal);position:relative;min-height:380px;display:flex;flex-direction:column;justify-content:space-between}
+  .step:last-child{border-right:0}
+  .step.s1{background:var(--terracotta);color:var(--cream)}
+  .step.s2{background:var(--ochre);color:var(--charcoal)}
+  .step.s3{background:var(--charcoal);color:var(--cream)}
+  .step .num{font-family:'Archivo Black';font-size:120px;line-height:0.8;letter-spacing:-0.04em;opacity:0.95}
+  .step.s1 .num{color:var(--cream)}
+  .step.s2 .num{color:var(--charcoal)}
+  .step.s3 .num{color:var(--ochre)}
+  .step h3{font-family:'Archivo Black';font-size:34px;line-height:0.92;letter-spacing:-0.02em;text-transform:uppercase;margin-top:24px}
+  .step p{font-size:15px;line-height:1.5;margin-top:16px;font-weight:500;max-width:32ch}
+  .step .tag{font-family:'JetBrains Mono';font-size:10px;text-transform:uppercase;letter-spacing:0.14em;font-weight:500;margin-top:24px;padding-top:14px;border-top:2px solid currentColor;opacity:0.9}
+
+  /* WHY US */
+  section.why{padding:120px 0;background:var(--charcoal);color:var(--cream);border-bottom:var(--rule) solid var(--terracotta)}
+  section.why .sec-num{color:var(--ochre)}
+  section.why .sec-title{color:var(--cream)}
+  section.why .sec-title em{color:var(--ochre)}
+  section.why .sec-eyebrow{color:var(--ochre);border-bottom-color:var(--ochre)}
+  .vp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:var(--rule) solid var(--cream)}
+  .vp{padding:36px 28px;border-right:var(--rule) solid var(--cream);min-height:320px;display:flex;flex-direction:column;justify-content:space-between}
+  .vp:last-child{border-right:0}
+  .vp .icon{width:56px;height:56px;background:var(--terracotta);position:relative;margin-bottom:24px}
+  .vp.b .icon{background:var(--ochre)}
+  .vp.c .icon{background:var(--cream)}
+  .vp.d .icon{background:var(--rust)}
+  .vp .icon::after{content:"";position:absolute;background:var(--charcoal)}
+  .vp.a .icon::after{inset:18px 8px 8px 8px;}
+  .vp.b .icon::after{inset:8px;clip-path:polygon(0 50%,50% 0,100% 50%,50% 100%)}
+  .vp.c .icon::after{width:14px;height:14px;left:21px;top:21px;border-radius:50%}
+  .vp.d .icon::after{inset:8px;clip-path:polygon(50% 0,100% 100%,0 100%)}
+  .vp h4{font-family:'Archivo Black';font-size:24px;line-height:0.95;letter-spacing:-0.02em;text-transform:uppercase;color:var(--cream)}
+  .vp p{font-size:14px;line-height:1.55;margin-top:14px;color:var(--sand);font-weight:500}
+  .vp .stamp{font-family:'JetBrains Mono';font-size:10px;text-transform:uppercase;letter-spacing:0.14em;font-weight:500;color:var(--ochre);margin-top:auto;padding-top:18px;border-top:2px solid var(--cream)}
+
+  /* FAQ */
+  section.faq{padding:120px 0;background:var(--sand);border-bottom:var(--rule) solid var(--charcoal)}
+  .faq-list{border-top:var(--rule) solid var(--charcoal);border-bottom:var(--rule) solid var(--charcoal)}
+  .faq-item{border-bottom:2px solid var(--charcoal);padding:32px 0;display:grid;grid-template-columns:80px 1fr 60px;align-items:start;gap:24px}
+  .faq-item:last-child{border-bottom:0}
+  .faq-item .qnum{font-family:'Archivo Black';font-size:36px;color:var(--terracotta);line-height:0.8}
+  .faq-item h4{font-family:'Archivo Black';font-size:28px;line-height:1;letter-spacing:-0.02em;text-transform:uppercase;color:var(--charcoal)}
+  .faq-item .a{margin-top:14px;font-size:16px;line-height:1.55;font-weight:500;max-width:62ch}
+  .faq-item .plus{width:40px;height:40px;background:var(--charcoal);color:var(--ochre);font-family:'Archivo Black';font-size:24px;display:flex;align-items:center;justify-content:center;justify-self:end}
+
+  /* CTA BLOCK */
+  section.cta{background:var(--terracotta);color:var(--cream);padding:140px 0 130px;position:relative;overflow:hidden;border-bottom:var(--rule) solid var(--charcoal)}
+  section.cta::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:var(--rust);right:-140px;top:-180px}
+  section.cta::after{content:"";position:absolute;width:180px;height:180px;background:var(--charcoal);left:50%;bottom:-60px;transform:translateX(-50%)}
+  section.cta .wrap{position:relative;z-index:2}
+  section.cta h2{font-family:'Archivo Black';font-size:clamp(56px,10vw,180px);line-height:0.82;letter-spacing:-0.04em;text-transform:uppercase;color:var(--cream)}
+  section.cta h2 .ochre{color:var(--ochre)}
+  section.cta .sub{font-size:18px;line-height:1.5;font-weight:500;margin-top:36px;max-width:560px}
+  section.cta .actions{display:flex;gap:14px;margin-top:48px;flex-wrap:wrap}
+  section.cta .actions .btn-primary{background:var(--charcoal);border-color:var(--cream);color:var(--cream)}
+  section.cta .actions .btn-primary:hover{background:var(--ochre);color:var(--charcoal)}
+  section.cta .actions .btn-primary .arrow{background:var(--ochre)}
+  section.cta .actions .btn-primary .arrow::after{border-color:var(--ochre)}
+  section.cta .actions .btn-ghost{border-color:var(--cream);color:var(--cream)}
+  section.cta .actions .btn-ghost:hover{background:var(--cream);color:var(--terracotta)}
+  section.cta .meta-row{margin-top:60px;display:flex;gap:40px;flex-wrap:wrap;border-top:2px solid var(--cream);padding-top:28px}
+  section.cta .meta-row span{font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;letter-spacing:0.14em;font-weight:500}
+  section.cta .meta-row b{color:var(--ochre);font-weight:700}
+
+  /* FOOTER */
+  footer{background:var(--charcoal);color:var(--cream);padding:80px 0 32px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:2px solid var(--cream)}
+  .foot-grid h5{font-family:'Archivo Black';font-size:14px;text-transform:uppercase;letter-spacing:0.04em;color:var(--ochre);margin-bottom:18px}
+  .foot-grid a, .foot-grid p{display:block;font-size:14px;line-height:1.7;color:var(--sand);font-weight:500}
+  .foot-grid a:hover{color:var(--ochre)}
+  .foot-brand .wordmark .name{color:var(--cream)}
+  .foot-brand p{max-width:38ch;margin-top:18px}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;flex-wrap:wrap;gap:16px}
+  .foot-bottom span{font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--sand);font-weight:500}
+
+  /* SECTION DIVIDER (page breaks) */
+  .pagebreak{background:var(--terracotta);color:var(--cream);padding:36px 0;border-top:var(--rule) solid var(--charcoal);border-bottom:var(--rule) solid var(--charcoal)}
+  .pagebreak .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .pagebreak h6{font-family:'Archivo Black';font-size:28px;text-transform:uppercase;letter-spacing:-0.01em;line-height:1}
+  .pagebreak .mono{color:var(--ochre);font-weight:500}
+
+  /* FORM */
+  section.form{padding:100px 0 120px;background:var(--cream);border-bottom:var(--rule) solid var(--charcoal)}
+  .form-head{margin-bottom:64px}
+  .form-h1{font-family:'Archivo Black';font-size:clamp(52px,7vw,112px);line-height:0.86;letter-spacing:-0.04em;text-transform:uppercase}
+  .form-h1 .red{color:var(--terracotta)}
+  .form-sub{margin-top:28px;font-size:18px;line-height:1.5;font-weight:500;max-width:60ch}
+  .progress{display:flex;gap:0;margin-top:40px;border:var(--rule) solid var(--charcoal);max-width:560px}
+  .progress .step-tab{flex:1;padding:14px 16px;font-family:'JetBrains Mono';font-size:10px;text-transform:uppercase;letter-spacing:0.14em;font-weight:500;border-right:var(--rule) solid var(--charcoal);text-align:center}
+  .progress .step-tab:last-child{border-right:0}
+  .progress .step-tab.active{background:var(--charcoal);color:var(--ochre)}
+  .progress .step-tab.done{background:var(--ochre);color:var(--charcoal)}
+
+  .device-card{background:var(--cream);border:var(--rule) solid var(--charcoal);margin-bottom:32px}
+  .device-head{background:var(--charcoal);color:var(--cream);padding:18px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .device-head .label{font-family:'Archivo Black';font-size:18px;text-transform:uppercase;letter-spacing:-0.01em}
+  .device-head .label span{color:var(--ochre);margin-right:8px}
+  .device-head button{background:var(--terracotta);color:var(--cream);padding:8px 14px;font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;letter-spacing:0.12em;font-weight:500}
+  .device-body{padding:36px 32px}
+
+  .field{margin-bottom:32px}
+  .field label{display:block;font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;letter-spacing:0.14em;font-weight:500;margin-bottom:12px;color:var(--charcoal)}
+  .field label .req{color:var(--terracotta);margin-left:4px}
+
+  .select-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;border:var(--rule) solid var(--charcoal)}
+  .select-wrap > div{padding:16px 18px;border-right:var(--rule) solid var(--charcoal);background:var(--cream)}
+  .select-wrap > div:last-child{border-right:0}
+  .select-wrap .mono{display:block;margin-bottom:6px;color:var(--terracotta);font-weight:500}
+  .select-wrap .val{font-family:'Archivo Black';font-size:20px;text-transform:uppercase;letter-spacing:-0.01em;color:var(--charcoal)}
+  .select-wrap .val::after{content:"";display:inline-block;margin-left:14px;width:8px;height:8px;border-right:2px solid var(--charcoal);border-bottom:2px solid var(--charcoal);transform:rotate(45deg);vertical-align:middle;margin-bottom:4px}
+
+  .pills{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:var(--rule) solid var(--charcoal)}
+  .pill-opt{padding:24px 18px;background:var(--cream);border-right:var(--rule) solid var(--charcoal);cursor:pointer;display:flex;flex-direction:column;gap:8px}
+  .pill-opt:last-child{border-right:0}
+  .pill-opt:hover{background:var(--sand)}
+  .pill-opt.active{background:var(--terracotta);color:var(--cream)}
+  .pill-opt .pill-title{font-family:'Archivo Black';font-size:18px;text-transform:uppercase;letter-spacing:-0.01em;line-height:1}
+  .pill-opt .pill-desc{font-size:12px;line-height:1.4;font-weight:500;opacity:0.85}
+  .pill-opt.active .pill-desc{color:var(--cream)}
+
+  .issues-block{margin-top:24px;background:var(--sand);border:var(--rule) solid var(--charcoal);padding:24px}
+  .issues-block .ihead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .issues-block .ihead .mono{color:var(--terracotta);font-weight:600}
+  .issues-block .ihead .tag{background:var(--terracotta);color:var(--cream);padding:4px 10px;font-family:'JetBrains Mono';font-size:10px;letter-spacing:0.12em;font-weight:500}
+  .issues-block textarea{width:100%;background:var(--cream);border:2px solid var(--charcoal);padding:16px;font-family:'Archivo',sans-serif;font-size:15px;line-height:1.5;min-height:120px;resize:vertical;font-weight:500;color:var(--charcoal)}
+  .issues-block textarea:focus{outline:none;border-color:var(--terracotta);background:#fff}
+
+  .add-device{display:flex;align-items:center;gap:18px;padding:24px 28px;background:var(--charcoal);color:var(--cream);border:var(--rule) solid var(--charcoal);font-family:'Archivo Black';font-size:18px;text-transform:uppercase;letter-spacing:-0.01em;width:100%;justify-content:flex-start;margin-bottom:48px}
+  .add-device:hover{background:var(--terracotta)}
+  .add-device .plus{width:32px;height:32px;background:var(--ochre);color:var(--charcoal);display:inline-flex;align-items:center;justify-content:center;font-size:24px;line-height:1}
+  .add-device .sub{font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;letter-spacing:0.14em;font-weight:500;color:var(--ochre);margin-left:auto}
+
+  .contact-block{background:var(--charcoal);color:var(--cream);padding:48px 40px;border:var(--rule) solid var(--charcoal)}
+  .contact-block h3{font-family:'Archivo Black';font-size:36px;text-transform:uppercase;letter-spacing:-0.02em;line-height:0.95;margin-bottom:8px}
+  .contact-block .lede{color:var(--sand);font-weight:500;margin-bottom:32px;font-size:15px;max-width:48ch}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .contact-grid .field{margin-bottom:0}
+  .contact-grid .full{grid-column:1/-1}
+  .contact-block label{color:var(--ochre)}
+  .contact-block input{width:100%;background:transparent;border:0;border-bottom:2px solid var(--cream);padding:14px 4px;font-family:'Archivo',sans-serif;font-size:18px;color:var(--cream);font-weight:600}
+  .contact-block input::placeholder{color:var(--sand);opacity:0.7;font-weight:500}
+  .contact-block input:focus{outline:none;border-bottom-color:var(--ochre)}
+  .submit-row{display:flex;justify-content:space-between;align-items:center;margin-top:48px;flex-wrap:wrap;gap:24px;padding-top:36px;border-top:2px solid var(--cream)}
+  .submit-row .legal{font-size:12px;color:var(--sand);max-width:48ch;line-height:1.5;font-weight:500}
+  .submit-row button{background:var(--terracotta);color:var(--cream);padding:22px 32px;font-family:'Archivo Black';font-size:18px;text-transform:uppercase;letter-spacing:-0.01em;border:var(--rule) solid var(--cream);display:inline-flex;align-items:center;gap:18px}
+  .submit-row button:hover{background:var(--ochre);color:var(--charcoal)}
+  .submit-row button .arrow{width:30px;height:2px;background:currentColor;position:relative}
+  .submit-row button .arrow::after{content:"";position:absolute;right:0;top:-4px;width:10px;height:10px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
+
+  /* THANK YOU */
+  section.ty{padding:120px 0;background:var(--ochre);color:var(--charcoal);border-bottom:var(--rule) solid var(--charcoal);position:relative;overflow:hidden}
+  section.ty::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:var(--terracotta);left:-120px;bottom:-120px}
+  section.ty .wrap{position:relative;z-index:2}
+  .ty-mark{display:inline-flex;align-items:center;gap:14px;background:var(--charcoal);color:var(--ochre);padding:14px 22px;font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;letter-spacing:0.16em;font-weight:500;margin-bottom:40px}
+  .ty-mark .dot{width:10px;height:10px;background:var(--ochre);border-radius:50%;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+  .ty h2{font-family:'Archivo Black';font-size:clamp(56px,9.5vw,168px);line-height:0.82;letter-spacing:-0.04em;text-transform:uppercase}
+  .ty h2 .red{color:var(--terracotta)}
+  .ty-sub{margin-top:36px;font-size:19px;line-height:1.5;font-weight:500;max-width:60ch}
+  .ty-ref{display:flex;gap:32px;margin-top:36px;flex-wrap:wrap;padding:20px 24px;background:var(--charcoal);color:var(--cream);width:fit-content}
+  .ty-ref span{font-family:'JetBrains Mono';font-size:11px;text-transform:uppercase;letter-spacing:0.14em;font-weight:500}
+  .ty-ref b{color:var(--ochre);font-family:'Archivo Black';font-size:18px;letter-spacing:0;margin-left:6px}
+
+  .next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:80px;border:var(--rule) solid var(--charcoal)}
+  .next{padding:40px 32px 36px;border-right:var(--rule) solid var(--charcoal);background:var(--cream);min-height:380px;display:flex;flex-direction:column;justify-content:space-between}
+  .next:last-child{border-right:0}
+  .next.b{background:var(--charcoal);color:var(--cream)}
+  .next.c{background:var(--terracotta);color:var(--cream)}
+  .next .num{font-family:'Archivo Black';font-size:88px;line-height:0.82;letter-spacing:-0.04em;color:var(--terracotta)}
+  .next.b .num{color:var(--ochre)}
+  .next.c .num{color:var(--ochre)}
+  .next h4{font-family:'Archivo Black';font-size:28px;line-height:0.95;letter-spacing:-0.02em;text-transform:uppercase;margin-top:24px}
+  .next p{font-size:14px;line-height:1.55;margin-top:14px;font-weight:500}
+  .next .when{font-family:'JetBrains Mono';font-size:10px;text-transform:uppercase;letter-spacing:0.14em;font-weight:500;margin-top:24px;padding-top:14px;border-top:2px solid currentColor}
+
+  .ty-actions{margin-top:80px;display:flex;gap:14px;flex-wrap:wrap;padding-top:40px;border-top:var(--rule) solid var(--charcoal)}
+  .ty-actions .btn-primary{background:var(--charcoal);color:var(--ochre);border-color:var(--charcoal)}
+  .ty-actions .btn-primary:hover{background:var(--terracotta);color:var(--cream)}
+  .ty-actions .btn-ghost{border-color:var(--charcoal);color:var(--charcoal)}
+  .ty-actions .btn-ghost:hover{background:var(--charcoal);color:var(--ochre)}
+
+  /* RESPONSIVE */
+  @media (max-width:1100px){
+    .hero-grid{grid-template-columns:1fr}
+    .hero-right{border-left:0;border-top:var(--rule) solid var(--charcoal)}
+    .hero-stats{margin-top:48px}
+    .vp-grid{grid-template-columns:repeat(2,1fr)}
+    .vp:nth-child(2){border-right:0}
+    .vp:nth-child(1),.vp:nth-child(2){border-bottom:var(--rule) solid var(--cream)}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:820px){
+    .wrap{padding:0 24px}
+    nav.main{display:none}
+    .sec-head{grid-template-columns:1fr;gap:18px}
+    .sec-num{font-size:88px}
+    .steps{grid-template-columns:1fr}
+    .step{border-right:0;border-bottom:var(--rule) solid var(--charcoal);min-height:auto}
+    .step:last-child{border-bottom:0}
+    .vp-grid{grid-template-columns:1fr}
+    .vp{border-right:0;border-bottom:var(--rule) solid var(--cream)}
+    .vp:last-child{border-bottom:0}
+    .faq-item{grid-template-columns:48px 1fr 40px;gap:14px}
+    .faq-item .qnum{font-size:24px}
+    .faq-item h4{font-size:22px}
+    .pills{grid-template-columns:1fr 1fr}
+    .pill-opt:nth-child(2){border-right:0}
+    .pill-opt:nth-child(1),.pill-opt:nth-child(2){border-bottom:var(--rule) solid var(--charcoal)}
+    .contact-grid{grid-template-columns:1fr}
+    .next-grid{grid-template-columns:1fr}
+    .next{border-right:0;border-bottom:var(--rule) solid var(--charcoal);min-height:auto}
+    .next:last-child{border-bottom:0}
+    .foot-grid{grid-template-columns:1fr}
+    .hero-left{padding:48px 24px 60px}
+    .hero-right{padding:40px 24px}
+    .hero-stats{grid-template-columns:1fr}
+    .stat{border-right:0;border-bottom:var(--rule) solid var(--charcoal);padding:20px 0}
+    .stat:last-child{border-bottom:0}
+    section.cta{padding:80px 0}
+    .select-wrap{grid-template-columns:1fr}
+    .select-wrap > div{border-right:0;border-bottom:var(--rule) solid var(--charcoal)}
+    .select-wrap > div:last-child{border-bottom:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="mono"><b>Same-day cash</b> &nbsp;/&nbsp; Sydney CBD pickup &nbsp;/&nbsp; PayID in minutes</span>
+    <span class="mono">Mon–Sat 8am–7pm &nbsp;/&nbsp; <b>02 8330 4127</b></span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site">
+  <div class="wrap navrow">
+    <a class="wordmark" href="#">
+      <span class="blockmark"></span>
+      <span class="name">Sell My Phone<br><span>Sydney AU · Est. 2018</span></span>
+    </a>
+    <nav class="main">
+      <a href="#how">How it works</a>
+      <a href="#why">Why us</a>
+      <a href="#brands">Brands</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="cta-btn" href="#form"><span class="dot"></span>Get a quote</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div>
+        <div class="hero-meta">
+          <span class="pill">Live offer</span>
+          <span class="mono">Updated 11:42am AEST · Sydney</span>
+        </div>
+        <h1 class="hero-h1">
+          Sell your<br>
+          <span class="red">phone.</span><br>
+          Get paid<br>
+          <span class="underline">today.</span>
+        </h1>
+        <p class="hero-sub">No haggle. No post. No middleman. Lock in a real cash price online, hand over the phone in Sydney CBD, walk out with PayID or notes in your pocket — usually within the hour.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#form">Quote my phone <span class="arrow"></span></a>
+          <a class="btn-ghost" href="#how">How it works</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">$1,420</div><div class="lbl">Top iPhone 15 Pro offer · this week</div></div>
+        <div class="stat"><div class="num">47 min</div><div class="lbl">Avg. quote-to-cash · CBD walk-ins</div></div>
+        <div class="stat"><div class="num">12,800+</div><div class="lbl">Phones bought since 2018</div></div>
+      </div>
+    </div>
+    <aside class="hero-right">
+      <div>
+        <span class="mono" style="color:var(--ochre)">Today's offers</span>
+        <div style="margin-top:24px">
+          <div class="quote-card">
+            <div class="device">iPhone 15 Pro 256GB</div>
+            <div class="price">$1,420</div>
+            <div class="meta"><span>Like new · Unlocked</span><span style="color:var(--terracotta)">+$60 boost</span></div>
+          </div>
+          <div class="quote-card">
+            <div class="device">Galaxy S24 Ultra 512GB</div>
+            <div class="price">$1,180</div>
+            <div class="meta"><span>Good · Boxed</span><span style="color:var(--terracotta)">PayID ready</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="quote-foot">
+        <b>Walk-in or we come to you.</b>
+        Pitt St shopfront, or free metro pickup from your office, gym or the school gate. Pick a window, we're there.
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- BRANDS MARQUEE -->
+<section class="brands" id="brands">
+  <div class="wrap brands-inner">
+    <span class="label">Brands we buy</span>
+    <span class="brand">iPhone</span>
+    <span class="brand">Samsung</span>
+    <span class="brand">Google Pixel</span>
+    <span class="brand">OnePlus</span>
+    <span class="brand">Oppo</span>
+    <span class="brand">Xiaomi</span>
+    <span class="brand">Sony</span>
+    <span class="brand">iPad</span>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <span class="sec-eyebrow">01 / Process</span>
+    <div class="sec-head">
+      <div class="sec-num">03</div>
+      <h2 class="sec-title">Three steps. <em>One handshake.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step s1">
+        <div>
+          <div class="num">01</div>
+          <h3>Tell us<br>what you've got</h3>
+          <p>Pick your model, storage and honest condition. Add a line about any cracked glass, dodgy battery or iCloud lock — we price it in, no nasty surprises.</p>
+        </div>
+        <div class="tag">90 seconds · No login</div>
+      </div>
+      <div class="step s2">
+        <div>
+          <div class="num">02</div>
+          <h3>Lock in a real price</h3>
+          <p>You'll get a firm written offer back, not a "from" price. Valid 48 hours, same number you see online — whether you ship, walk in, or we collect from your office.</p>
+        </div>
+        <div class="tag">Quote held 48 hours</div>
+      </div>
+      <div class="step s3">
+        <div>
+          <div class="num">03</div>
+          <h3>Get paid<br>same day</h3>
+          <p>Hand it over at our Pitt Street shopfront or to one of our metro runners. PayID or cash on the spot once we verify the phone matches the quote.</p>
+        </div>
+        <div class="tag">PayID · Cash · Bank transfer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="wrap">
+    <span class="sec-eyebrow">02 / Difference</span>
+    <div class="sec-head">
+      <div class="sec-num">04</div>
+      <h2 class="sec-title">Why Sydney sells with <em>us.</em></h2>
+    </div>
+    <div class="vp-grid">
+      <div class="vp a">
+        <div>
+          <div class="icon"></div>
+          <h4>Real cash<br>same day</h4>
+          <p>No 7-day "inspection windows". PayID or notes the moment we plug it in. We'd rather lose the deal than ghost you.</p>
+        </div>
+        <div class="stamp">Avg. 47 minutes</div>
+      </div>
+      <div class="vp b">
+        <div>
+          <div class="icon"></div>
+          <h4>One firm<br>price</h4>
+          <p>The number you accept online is the number you walk out with. If the condition matches, the price doesn't move at the counter — that's in writing.</p>
+        </div>
+        <div class="stamp">Locked 48 hours</div>
+      </div>
+      <div class="vp c">
+        <div>
+          <div class="icon"></div>
+          <h4>Sydney based.<br>Sydney owned.</h4>
+        </div>
+        <p>Pitt Street CBD shopfront with two real humans behind the counter, plus runners covering Parramatta to Bondi. No PO boxes, no overseas call centres.</p>
+        <div class="stamp">ABN 47 162 884 901</div>
+      </div>
+      <div class="vp d">
+        <div>
+          <div class="icon"></div>
+          <h4>Data wiped<br>properly</h4>
+          <p>Every device is factory wiped to manufacturer spec on intake, certified, and the cert is emailed to you. Cracked or locked phones get stripped for parts in-house.</p>
+        </div>
+        <div class="stamp">Certificate emailed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <span class="sec-eyebrow">03 / Questions</span>
+    <div class="sec-head">
+      <div class="sec-num">FAQ</div>
+      <h2 class="sec-title">The bits<br>people <em>actually</em> ask.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="qnum">Q1</div>
+        <div>
+          <h4>How fast do I actually get paid?</h4>
+          <p class="a">If you walk into our Pitt Street shopfront with a phone that matches the quote, you're walking back out with PayID in your bank in under an hour — usually closer to 25 minutes. Metro pickups run same day if you book before 2pm.</p>
+        </div>
+        <div class="plus">+</div>
+      </div>
+      <div class="faq-item">
+        <div class="qnum">Q2</div>
+        <div>
+          <h4>Do you buy cracked or locked phones?</h4>
+          <p class="a">Yes — both. Cracked glass, dud batteries, dead boards, iCloud locked, carrier locked. Just be straight in the form. We'll quote a fair parts-or-repair price and stand behind it. Honest write-ups get the highest offers, every time.</p>
+        </div>
+        <div class="plus">+</div>
+      </div>
+      <div class="faq-item">
+        <div class="qnum">Q3</div>
+        <div>
+          <h4>Is meeting in person safe?</h4>
+          <p class="a">Our Pitt Street shopfront is open Mon–Sat with two staff on every shift, CCTV throughout and an Australia Post counter two doors down for ID checks. If you'd rather we come to you, our runners only meet at offices, cafés or public lobbies — never carparks or homes.</p>
+        </div>
+        <div class="plus">+</div>
+      </div>
+      <div class="faq-item">
+        <div class="qnum">Q4</div>
+        <div>
+          <h4>What happens to my data?</h4>
+          <p class="a">Every phone is wiped to the manufacturer's factory-reset spec the second it crosses our counter, then verified on a second pass before resale. You'll get a wipe certificate emailed within 24 hours with the IMEI and timestamp — keep it for your records.</p>
+        </div>
+        <div class="plus">+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Cash in<br>your <span class="ochre">pocket</span><br>by 5pm.</h2>
+    <p class="sub">Most Sydney walk-ins are quoted, paid and out the door before their parking expires. Lock in a number now and pick your window — we'll work around your day.</p>
+    <div class="actions">
+      <a class="btn-primary" href="#form">Quote my phone <span class="arrow"></span></a>
+      <a class="btn-ghost" href="tel:0283304127">Call 02 8330 4127</a>
+    </div>
+    <div class="meta-row">
+      <span><b>Hours</b> Mon–Sat 8am–7pm</span>
+      <span><b>Shopfront</b> Lvl 1, 388 Pitt St, Sydney 2000</span>
+      <span><b>Pickup zone</b> CBD · Inner West · North Shore · Eastern Suburbs</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="#">
+          <span class="blockmark"></span>
+          <span class="name">Sell My Phone<br><span>Sydney AU · Est. 2018</span></span>
+        </a>
+        <p>Independent Sydney buyback. We pay cash, on the day, for honest devices — no auctions, no postage limbo, no "from $X" trickery.</p>
+      </div>
+      <div>
+        <h5>Site</h5>
+        <a href="#how">How it works</a>
+        <a href="#why">Why us</a>
+        <a href="#brands">Brands we buy</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h5>Find us</h5>
+        <p>Lvl 1, 388 Pitt St<br>Sydney NSW 2000</p>
+        <p style="margin-top:14px">02 8330 4127<br>hello@sellmyphonesydney.com.au</p>
+      </div>
+      <div>
+        <h5>Trust</h5>
+        <p>ABN 47 162 884 901</p>
+        <p>Licensed second-hand dealer · NSW Fair Trading</p>
+        <p style="margin-top:14px">Privacy · Terms · Wipe policy</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sell My Phone Sydney Pty Ltd. Made in Surry Hills.</span>
+      <span>v3 · Outback Ochre release</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============== PAGE BREAK: FORM ============== -->
+<div class="pagebreak" id="form">
+  <div class="wrap">
+    <h6>Page 02 / Quote form</h6>
+    <span class="mono">/sell-your-phone</span>
+  </div>
+</div>
+
+<section class="form">
+  <div class="wrap">
+    <div class="form-head">
+      <span class="sec-eyebrow">Step 1 of 3</span>
+      <h1 class="form-h1">Tell us about<br>your <span class="red">phone.</span></h1>
+      <p class="form-sub">Be honest about condition — even a cracked back-glass or a dodgy battery gets a real offer. The more we know, the firmer the price.</p>
+      <div class="progress">
+        <div class="step-tab active">01 · Device</div>
+        <div class="step-tab">02 · Contact</div>
+        <div class="step-tab">03 · Payout</div>
+      </div>
+    </div>
+
+    <!-- DEVICE CARD -->
+    <div class="device-card">
+      <div class="device-head">
+        <div class="label"><span>Device 01</span>iPhone 15 Pro · 256GB</div>
+        <button>Remove device</button>
+      </div>
+      <div class="device-body">
+
+        <div class="field">
+          <label>Brand &amp; model <span class="req">/required</span></label>
+          <div class="select-wrap">
+            <div>
+              <span class="mono">Brand</span>
+              <span class="val">Apple iPhone</span>
+            </div>
+            <div>
+              <span class="mono">Model</span>
+              <span class="val">iPhone 15 Pro · 256GB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Condition <span class="req">/required</span></label>
+          <div class="pills">
+            <div class="pill-opt">
+              <span class="pill-title">Brand new</span>
+              <span class="pill-desc">Sealed in box, never used.</span>
+            </div>
+            <div class="pill-opt active">
+              <span class="pill-title">Like new</span>
+              <span class="pill-desc">No marks, fully working, original box.</span>
+            </div>
+            <div class="pill-opt">
+              <span class="pill-title">Good</span>
+              <span class="pill-desc">Light wear, screen perfect, no faults.</span>
+            </div>
+            <div class="pill-opt">
+              <span class="pill-title">Has issues</span>
+              <span class="pill-desc">Cracks, battery, lock — tell us below.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="issues-block">
+          <div class="ihead">
+            <span class="mono">Describe any issues</span>
+            <span class="tag">Optional but helpful</span>
+          </div>
+          <textarea placeholder="e.g. Small hairline crack across the top-right of the front glass, Face ID still works. Battery health 84%, replaced once at uBreakiFix. Otherwise no scratches, original box and cable included."></textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ADD ANOTHER -->
+    <button class="add-device">
+      <span class="plus">+</span>
+      Add another device
+      <span class="sub">Selling 2+ gets a bundle bump</span>
+    </button>
+
+    <!-- CONTACT -->
+    <div class="contact-block" id="contact">
+      <h3>Where do we send the offer?</h3>
+      <p class="lede">We'll text the firm quote within 15 minutes, then you pick walk-in, pickup or post. No marketing spam, ever.</p>
+      <div class="contact-grid">
+        <div class="field">
+          <label>Full name</label>
+          <input type="text" placeholder="Riley Patterson" />
+        </div>
+        <div class="field">
+          <label>Mobile</label>
+          <input type="tel" placeholder="0412 884 901" />
+        </div>
+        <div class="field full">
+          <label>Email</label>
+          <input type="email" placeholder="riley@gmail.com" />
+        </div>
+        <div class="field full">
+          <label>Suburb / postcode</label>
+          <input type="text" placeholder="Surry Hills 2010" />
+        </div>
+      </div>
+      <div class="submit-row">
+        <p class="legal">By submitting you agree to our privacy terms. We only store the info needed to send the quote and verify the device — nothing else, no third parties.</p>
+        <button>Get my offer <span class="arrow"></span></button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============== PAGE BREAK: THANK YOU ============== -->
+<div class="pagebreak">
+  <div class="wrap">
+    <h6>Page 03 / Confirmed</h6>
+    <span class="mono">/thanks · ref #SMPS-4471</span>
+  </div>
+</div>
+
+<section class="ty">
+  <div class="wrap">
+    <span class="ty-mark"><span class="dot"></span>Quote locked · Reviewer assigned</span>
+    <h2>Beauty,<br>Riley. <span class="red">You're in.</span></h2>
+    <p class="ty-sub">Your iPhone 15 Pro 256GB just got handed to Marcus, one of our two senior valuers. You'll get a firm written offer texted to <b>0412 884 901</b> within 15 minutes — keep an eye on your phone.</p>
+    <div class="ty-ref">
+      <span>Reference <b>#SMPS-4471</b></span>
+      <span>Submitted <b>11:48am AEST</b></span>
+      <span>Valuer <b>Marcus T.</b></span>
+    </div>
+
+    <div class="next-grid">
+      <div class="next">
+        <div>
+          <div class="num">01</div>
+          <h4>Check your texts</h4>
+          <p>Marcus will send a firm number — usually within 15 minutes. Reply YES to accept and we'll book a pickup or walk-in slot on the spot.</p>
+        </div>
+        <div class="when">Within 15 min</div>
+      </div>
+      <div class="next b">
+        <div>
+          <div class="num">02</div>
+          <h4>Pick your handover</h4>
+          <p>Walk into our Pitt Street shopfront (open till 7pm tonight), or pick a 30-minute pickup window anywhere CBD, Inner West, North Shore or Eastern Suburbs.</p>
+        </div>
+        <div class="when">Same day · Mon–Sat</div>
+      </div>
+      <div class="next c">
+        <div>
+          <div class="num">03</div>
+          <h4>Get paid on the spot</h4>
+          <p>Once the phone matches the quote and the wipe is complete, PayID hits your bank within 60 seconds. Prefer cash? Notes in hand at the counter.</p>
+        </div>
+        <div class="when">PayID · Cash · Transfer</div>
+      </div>
+    </div>
+
+    <div class="ty-actions">
+      <a class="btn-primary" href="#form">Add another phone <span class="arrow"></span></a>
+      <a class="btn-ghost" href="#how">Read the handover guide</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

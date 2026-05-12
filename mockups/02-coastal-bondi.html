@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sell My Phone Sydney — Coastal Bondi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Palette ---------- */
+  :root {
+    --sand-cream: #F7EFE2;
+    --sand-deep: #EADFC8;
+    --seafoam: #BFD9CF;
+    --seafoam-soft: #DCEBE3;
+    --sky: #C9DCE6;
+    --sky-soft: #E4EEF3;
+    --ocean: #1F3A4D;
+    --ocean-soft: #2E5269;
+    --sun: #F5C24A;
+    --sun-deep: #E8A823;
+    --coral: #E8856B;
+    --ink: #2A2620;
+    --ink-soft: #5C564C;
+    --paper: #FBF6EC;
+    --line: rgba(31, 58, 77, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Lora', Georgia, serif; font-weight: 500; letter-spacing: -0.01em; color: var(--ocean); }
+  h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.08; }
+  h2 { font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.15; }
+  h3 { font-size: clamp(1.2rem, 1.8vw, 1.5rem); line-height: 1.3; }
+  p { color: var(--ink-soft); }
+
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 246, 236, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .wordmark {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 600;
+    color: var(--ocean); text-decoration: none;
+  }
+  .wordmark-sun {
+    width: 28px; height: 28px;
+    background: radial-gradient(circle, var(--sun) 30%, var(--coral) 90%);
+    border-radius: 50%;
+    box-shadow: 0 0 18px rgba(245, 194, 74, 0.6);
+  }
+  .nav { display: flex; gap: 32px; align-items: center; }
+  .nav a {
+    color: var(--ocean-soft); text-decoration: none;
+    font-size: 0.95rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav a:hover { color: var(--coral); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .btn-primary {
+    background: var(--ocean); color: var(--paper);
+    box-shadow: 0 6px 20px rgba(31, 58, 77, 0.18);
+  }
+  .btn-primary:hover { background: var(--ocean-soft); transform: translateY(-2px); }
+  .btn-sun {
+    background: var(--sun); color: var(--ocean);
+    box-shadow: 0 8px 24px rgba(232, 168, 35, 0.35);
+  }
+  .btn-sun:hover { background: var(--sun-deep); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: var(--ocean);
+    border: 1.5px solid var(--ocean);
+  }
+  .btn-ghost:hover { background: var(--ocean); color: var(--paper); }
+
+  @media (max-width: 768px) {
+    .nav a:not(.btn) { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding: 100px 0 140px;
+    background:
+      radial-gradient(ellipse at 75% 20%, rgba(245, 194, 74, 0.35) 0%, rgba(245, 194, 74, 0) 50%),
+      linear-gradient(180deg, var(--sky-soft) 0%, var(--sand-cream) 100%);
+    overflow: hidden;
+  }
+  .sun-disc {
+    position: absolute;
+    top: 80px; right: 12%;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245, 194, 74, 0.95) 0%, rgba(232, 168, 35, 0.4) 50%, rgba(232, 168, 35, 0) 80%);
+    filter: blur(2px);
+    pointer-events: none;
+  }
+  .palm-svg {
+    position: absolute;
+    bottom: 60px; left: -40px;
+    width: 280px; opacity: 0.5;
+    pointer-events: none;
+  }
+  .hero-grid {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1.3fr 1fr;
+    gap: 60px; align-items: center;
+  }
+  .hero h1 .accent {
+    font-style: italic;
+    color: var(--coral);
+  }
+  .hero-lede {
+    font-size: 1.15rem; line-height: 1.65;
+    margin: 24px 0 36px;
+    max-width: 520px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-trust {
+    margin-top: 36px;
+    display: flex; gap: 24px; flex-wrap: wrap;
+    font-size: 0.9rem; color: var(--ink-soft);
+  }
+  .hero-trust-item { display: flex; align-items: center; gap: 8px; }
+  .trust-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--seafoam); box-shadow: 0 0 0 4px rgba(191, 217, 207, 0.4); }
+
+  .hero-card {
+    position: relative;
+    background: var(--paper);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 30px 60px rgba(31, 58, 77, 0.12);
+    transform: rotate(1.5deg);
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 24px;
+    border: 1px solid rgba(31, 58, 77, 0.08);
+    pointer-events: none;
+  }
+  .quote-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--seafoam-soft);
+    color: var(--ocean);
+    font-size: 0.8rem; font-weight: 600;
+    padding: 6px 12px; border-radius: 999px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .quote-phone {
+    margin: 18px 0 6px;
+    font-family: 'Lora', serif; font-size: 1.5rem; color: var(--ocean);
+  }
+  .quote-condition { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 24px; }
+  .quote-amount {
+    font-family: 'Lora', serif;
+    font-size: 3.6rem; font-weight: 600;
+    color: var(--ocean);
+    line-height: 1;
+  }
+  .quote-amount sup { font-size: 1.2rem; vertical-align: super; color: var(--coral); margin-right: 4px; }
+  .quote-meta {
+    margin-top: 18px; padding-top: 18px;
+    border-top: 1px dashed var(--line);
+    display: flex; justify-content: space-between;
+    font-size: 0.85rem; color: var(--ink-soft);
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero { padding: 60px 0 100px; }
+    .sun-disc { width: 140px; height: 140px; right: -20px; top: 40px; }
+    .palm-svg { display: none; }
+    .hero-card { transform: none; }
+  }
+
+  /* ---------- Wave Divider ---------- */
+  .wave-divider {
+    display: block; width: 100%; height: 80px;
+    margin-top: -1px;
+  }
+
+  /* ---------- Brands strip ---------- */
+  .brands {
+    padding: 60px 0;
+    background: var(--sand-cream);
+  }
+  .brands-label {
+    text-align: center;
+    font-size: 0.85rem; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+  }
+  .brands-row {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 36px 56px;
+    align-items: center;
+  }
+  .brand-name {
+    font-family: 'Lora', serif;
+    font-size: 1.25rem; font-style: italic;
+    color: var(--ocean); opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .brand-name:hover { opacity: 1; }
+
+  /* ---------- Section base ---------- */
+  section { position: relative; }
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 0.8rem; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--coral); font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .section-head {
+    text-align: center; max-width: 640px;
+    margin: 0 auto 60px;
+  }
+  .section-head p { margin-top: 16px; font-size: 1.05rem; }
+
+  /* ---------- How it works ---------- */
+  .how {
+    padding: 110px 0;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--seafoam-soft) 100%);
+  }
+  .steps {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .step {
+    background: var(--paper);
+    border-radius: 20px;
+    padding: 36px 30px;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(31, 58, 77, 0.06);
+    border: 1px solid var(--line);
+  }
+  .step-num {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--sun);
+    color: var(--ocean);
+    font-family: 'Lora', serif; font-size: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(245, 194, 74, 0.4);
+  }
+  .step h3 { margin-bottom: 10px; }
+  .step p { font-size: 0.98rem; }
+
+  @media (max-width: 900px) {
+    .steps { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Why us ---------- */
+  .why {
+    padding: 110px 0;
+    background: var(--seafoam-soft);
+  }
+  .values {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .value {
+    background: var(--paper);
+    border-radius: 18px;
+    padding: 30px 24px;
+    text-align: left;
+  }
+  .value-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: var(--sky-soft);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    color: var(--ocean);
+  }
+  .value h4 {
+    font-family: 'Lora', serif; font-size: 1.15rem;
+    color: var(--ocean); margin-bottom: 8px;
+  }
+  .value p { font-size: 0.92rem; line-height: 1.55; }
+
+  @media (max-width: 900px) {
+    .values { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 540px) {
+    .values { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq {
+    padding: 110px 0;
+    background: var(--paper);
+  }
+  .faq-list {
+    max-width: 760px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .faq-item {
+    background: var(--sand-cream);
+    border-radius: 16px;
+    padding: 24px 28px;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .faq-item:hover { background: var(--sand-deep); }
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Lora', serif; font-size: 1.15rem;
+    color: var(--ocean); font-weight: 500;
+  }
+  .faq-q svg { flex-shrink: 0; margin-left: 16px; }
+  .faq-a {
+    margin-top: 12px;
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Final CTA ---------- */
+  .cta-final {
+    padding: 120px 0;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(245, 194, 74, 0.3) 0%, rgba(245, 194, 74, 0) 60%),
+      linear-gradient(180deg, var(--sky) 0%, var(--seafoam) 100%);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-final h2 {
+    max-width: 700px; margin: 0 auto 20px;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+  }
+  .cta-final p {
+    max-width: 540px; margin: 0 auto 36px;
+    font-size: 1.1rem; color: var(--ocean-soft);
+  }
+  .cta-final .seagull {
+    position: absolute; top: 20%; left: 10%;
+    opacity: 0.4;
+  }
+  .cta-final .seagull-2 {
+    position: absolute; top: 30%; right: 15%;
+    opacity: 0.3;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--ocean);
+    color: var(--sand-cream);
+    padding: 70px 0 30px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  footer h5 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sun); margin-bottom: 16px;
+  }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 10px; }
+  footer ul a {
+    color: var(--sand-cream); opacity: 0.75;
+    text-decoration: none; font-size: 0.95rem;
+  }
+  footer ul a:hover { opacity: 1; color: var(--sun); }
+  .footer-about p {
+    color: rgba(247, 239, 226, 0.75);
+    font-size: 0.95rem; max-width: 320px;
+    margin-top: 14px;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(247, 239, 226, 0.15);
+    padding-top: 24px;
+    display: flex; justify-content: space-between;
+    font-size: 0.85rem;
+    color: rgba(247, 239, 226, 0.6);
+  }
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-bottom { flex-direction: column; gap: 10px; }
+  }
+
+  /* ---------- Page Divider ---------- */
+  .page-divider {
+    background: var(--ocean);
+    color: var(--sand-cream);
+    padding: 40px 0;
+    text-align: center;
+  }
+  .page-divider-eyebrow {
+    font-size: 0.75rem; letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sun); margin-bottom: 8px;
+  }
+  .page-divider h3 {
+    color: var(--sand-cream);
+    font-family: 'Lora', serif;
+    font-style: italic;
+  }
+
+  /* ---------- Form Page ---------- */
+  .form-page {
+    padding: 100px 0;
+    background:
+      radial-gradient(ellipse at 80% 0%, rgba(245, 194, 74, 0.25) 0%, rgba(245, 194, 74, 0) 50%),
+      linear-gradient(180deg, var(--sky-soft) 0%, var(--sand-cream) 100%);
+  }
+  .form-wrap {
+    max-width: 780px; margin: 0 auto;
+  }
+  .form-head { text-align: center; margin-bottom: 60px; }
+  .form-head p { margin-top: 16px; font-size: 1.1rem; }
+
+  .device-block {
+    background: var(--paper);
+    border-radius: 22px;
+    padding: 36px;
+    box-shadow: 0 12px 36px rgba(31, 58, 77, 0.08);
+    border: 1px solid var(--line);
+    margin-bottom: 24px;
+  }
+  .device-block-label {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 24px;
+  }
+  .device-num {
+    font-family: 'Lora', serif; font-style: italic;
+    color: var(--coral); font-size: 1.1rem;
+  }
+  .remove-link {
+    font-size: 0.85rem; color: var(--ink-soft);
+    text-decoration: underline; cursor: pointer;
+  }
+
+  .field { margin-bottom: 22px; }
+  .field label {
+    display: block;
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--ocean); margin-bottom: 8px;
+  }
+  .field-help {
+    font-size: 0.82rem; color: var(--ink-soft);
+    margin-top: 6px; font-style: italic;
+  }
+  input[type="text"], input[type="email"], input[type="tel"], textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1.5px solid var(--line);
+    background: var(--sand-cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+    transition: all 0.2s;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--seafoam);
+    background: var(--paper);
+    box-shadow: 0 0 0 4px rgba(191, 217, 207, 0.3);
+  }
+  textarea { resize: vertical; min-height: 100px; }
+
+  .pills {
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .pill {
+    padding: 11px 20px;
+    border-radius: 999px;
+    border: 1.5px solid var(--line);
+    background: var(--paper);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 500;
+    color: var(--ocean);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .pill:hover { border-color: var(--seafoam); }
+  .pill.active {
+    background: var(--ocean);
+    color: var(--paper);
+    border-color: var(--ocean);
+  }
+  .pill.warning {
+    background: var(--coral);
+    color: var(--paper);
+    border-color: var(--coral);
+  }
+
+  .add-device {
+    width: 100%;
+    padding: 18px;
+    border-radius: 16px;
+    background: transparent;
+    border: 1.5px dashed var(--ocean);
+    color: var(--ocean);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.98rem; font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 36px;
+  }
+  .add-device:hover {
+    background: var(--paper);
+    border-color: var(--coral);
+    color: var(--coral);
+  }
+
+  .contact-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 600px) {
+    .contact-row { grid-template-columns: 1fr; }
+  }
+
+  .submit-row {
+    margin-top: 40px;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    flex-wrap: wrap;
+  }
+  .submit-row .privacy {
+    font-size: 0.85rem; color: var(--ink-soft); max-width: 360px;
+  }
+
+  /* ---------- Thank You ---------- */
+  .ty {
+    padding: 120px 0;
+    background:
+      radial-gradient(ellipse at 50% 10%, rgba(245, 194, 74, 0.3) 0%, rgba(245, 194, 74, 0) 50%),
+      linear-gradient(180deg, var(--seafoam-soft) 0%, var(--sand-cream) 100%);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .ty-check {
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: var(--sun);
+    margin: 0 auto 32px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 16px 36px rgba(245, 194, 74, 0.4);
+  }
+  .ty h1 { margin-bottom: 18px; }
+  .ty-lede {
+    font-size: 1.15rem;
+    max-width: 540px;
+    margin: 0 auto 70px;
+  }
+  .ty-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .ty-card {
+    background: var(--paper);
+    border-radius: 20px;
+    padding: 32px 28px;
+    box-shadow: 0 12px 30px rgba(31, 58, 77, 0.08);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .ty-card-num {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--coral);
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+  .ty-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+  .ty-card p { font-size: 0.95rem; }
+  @media (max-width: 900px) {
+    .ty-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====================== HEADER ====================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="#">
+      <span class="wordmark-sun"></span>
+      Sell My Phone Sydney
+    </a>
+    <nav class="nav">
+      <a href="#how">How it works</a>
+      <a href="#why">Why us</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-sun" href="#form">Get a quote</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ====================== HERO ====================== -->
+<section class="hero">
+  <div class="sun-disc"></div>
+  <svg class="palm-svg" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 300 L100 140" stroke="#1F3A4D" stroke-width="3" opacity="0.6"/>
+    <path d="M100 140 C 60 100, 30 90, 10 110 C 50 110, 80 125, 100 140 Z" fill="#1F3A4D" opacity="0.5"/>
+    <path d="M100 140 C 140 95, 175 85, 195 105 C 155 110, 125 125, 100 140 Z" fill="#1F3A4D" opacity="0.5"/>
+    <path d="M100 140 C 70 80, 50 50, 60 30 C 80 60, 95 100, 100 140 Z" fill="#1F3A4D" opacity="0.5"/>
+    <path d="M100 140 C 130 80, 155 55, 145 30 C 125 60, 110 100, 100 140 Z" fill="#1F3A4D" opacity="0.5"/>
+    <path d="M100 140 C 95 90, 100 50, 110 35 C 108 75, 105 110, 100 140 Z" fill="#1F3A4D" opacity="0.5"/>
+  </svg>
+
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="section-eyebrow">Sydney's friendliest phone buyback</span>
+        <h1>Sell your phone.<br /><span class="accent">Get paid today.</span></h1>
+        <p class="hero-lede">Quick, honest quotes for your old iPhone, Samsung or Pixel. We're based in Sydney CBD, we wipe your data properly, and we pay you the same day via PayID or bank transfer.</p>
+        <div class="hero-actions">
+          <a class="btn btn-sun" href="#form">
+            Get your quote
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-item"><span class="trust-dot"></span> Same-day PayID payment</div>
+          <div class="hero-trust-item"><span class="trust-dot"></span> Free Sydney metro pickup</div>
+          <div class="hero-trust-item"><span class="trust-dot"></span> No bait pricing</div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <span class="quote-tag">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="#1F3A4D"/></svg>
+          Example quote
+        </span>
+        <div class="quote-phone">iPhone 14 Pro · 256GB</div>
+        <div class="quote-condition">Like new — no scratches, full battery health</div>
+        <div class="quote-amount"><sup>$</sup>820</div>
+        <div class="quote-meta">
+          <span>Paid same day</span>
+          <span>Quote valid 7 days</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="wave-divider" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 40 C 240 80, 480 0, 720 30 C 960 60, 1200 10, 1440 40 L1440 80 L0 80 Z" fill="#F7EFE2"/>
+  </svg>
+</section>
+
+<!-- ====================== BRANDS ====================== -->
+<section class="brands">
+  <div class="container">
+    <p class="brands-label">We buy all the major ones</p>
+    <div class="brands-row">
+      <span class="brand-name">iPhone</span>
+      <span class="brand-name">Samsung</span>
+      <span class="brand-name">Google Pixel</span>
+      <span class="brand-name">OnePlus</span>
+      <span class="brand-name">Oppo</span>
+      <span class="brand-name">Xiaomi</span>
+      <span class="brand-name">Sony</span>
+      <span class="brand-name">iPad</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== HOW IT WORKS ====================== -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Three easy steps</span>
+      <h2>How it works</h2>
+      <p>From "thinking about it" to cash in your account, usually within the same arvo.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Tell us what you have</h3>
+        <p>Fill in the quick form with your phone model, storage, and condition. Takes about 60 seconds — promise.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>We send a fair quote</h3>
+        <p>You'll get a real number back, usually within the hour. No "up to $X" rubbish — what we quote is what we pay.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Drop off or we come to you</h3>
+        <p>Bring it to our Sydney CBD office or book free pickup anywhere in the metro area. Paid via PayID on the spot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== WHY US ====================== -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Why Sydney trusts us</span>
+      <h2>The Bondi difference</h2>
+      <p>We're a small Sydney team — not a faceless website with a call centre overseas.</p>
+    </div>
+    <div class="values">
+      <div class="value">
+        <div class="value-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M5 9l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>No bait pricing</h4>
+        <p>The quote you get is the price we pay. No surprise deductions when your phone shows up.</p>
+      </div>
+      <div class="value">
+        <div class="value-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Same-day payment</h4>
+        <p>PayID, OSKO or bank transfer. Money lands while you're still walking back to the car.</p>
+      </div>
+      <div class="value">
+        <div class="value-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 22s-8-7.5-8-13a8 8 0 0 1 16 0c0 5.5-8 13-8 13Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h4>Sydney based</h4>
+        <p>Office in the CBD. Free pickup across Bondi, Eastern Suburbs, Inner West, North Shore.</p>
+      </div>
+      <div class="value">
+        <div class="value-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Data wiped properly</h4>
+        <p>Certified factory reset with verification. You get a written receipt confirming it's done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FAQ ====================== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">Common questions</span>
+      <h2>The bits people usually ask</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">
+          How do you decide what my phone is worth?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="#1F3A4D" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <p class="faq-a">We check current market rates daily across major Australian resellers, then factor in your phone's specific condition, storage and battery health. You'll see exactly how we got there.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          What if my phone has a cracked screen?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="#1F3A4D" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <p class="faq-a">Still worth selling — we buy damaged phones too. Just tick "Has issues" on the form and describe what's going on. We'll factor it into the quote upfront.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          How does the pickup work?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="#1F3A4D" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <p class="faq-a">Free pickup anywhere in Sydney metro. We come to your home, office or wherever's easy. Quick check on the spot, then we transfer the money via PayID before we leave.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          How fast do I get paid?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="#1F3A4D" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <p class="faq-a">Same day, in your account. We pay via PayID or OSKO instant transfer the moment we've verified the device. Most people are paid within 10 minutes of handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FINAL CTA ====================== -->
+<section class="cta-final">
+  <svg class="seagull" width="40" height="20" viewBox="0 0 40 20" fill="none"><path d="M2 12 C 8 4, 14 4, 20 12 C 26 4, 32 4, 38 12" stroke="#1F3A4D" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+  <svg class="seagull-2" width="32" height="16" viewBox="0 0 40 20" fill="none"><path d="M2 12 C 8 4, 14 4, 20 12 C 26 4, 32 4, 38 12" stroke="#1F3A4D" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+  <div class="container">
+    <span class="section-eyebrow">Ready when you are</span>
+    <h2>Trade that old phone in for a beach day.</h2>
+    <p>Most quotes take less than a minute. Paid same day, no fuss.</p>
+    <a class="btn btn-primary" href="#form">
+      Get my quote
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="wordmark" href="#" style="color: var(--sand-cream);">
+          <span class="wordmark-sun"></span>
+          Sell My Phone Sydney
+        </a>
+        <p>A small Sydney team paying fair prices for used phones since 2019. ABN 12 345 678 910.</p>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Our office</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get a quote</h5>
+        <ul>
+          <li><a href="#">iPhone</a></li>
+          <li><a href="#">Samsung</a></li>
+          <li><a href="#">Pixel & others</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#">hello@sellmyphone.sydney</a></li>
+          <li><a href="#">(02) 8000 1234</a></li>
+          <li><a href="#">Level 4, 123 Pitt St, Sydney CBD</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sell My Phone Sydney Pty Ltd</span>
+      <span>Privacy · Terms · Made on Gadigal Country</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ====================== PAGE DIVIDER ====================== -->
+<div class="page-divider">
+  <div class="container">
+    <div class="page-divider-eyebrow">Mockup Section 2 of 3</div>
+    <h3>The quote form</h3>
+  </div>
+</div>
+
+<!-- ====================== FORM PAGE ====================== -->
+<section class="form-page" id="form">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="form-head">
+        <span class="section-eyebrow">Step 1 of 1</span>
+        <h1>Let's see what you've got.</h1>
+        <p>Fill in the basics. We'll come back to you with a real quote — usually within the hour.</p>
+      </div>
+
+      <div class="device-block">
+        <div class="device-block-label">
+          <span class="device-num">Device 01</span>
+          <span class="remove-link">Remove</span>
+        </div>
+
+        <div class="field">
+          <label for="model">Phone model</label>
+          <input id="model" type="text" placeholder="e.g. iPhone 14 Pro 256GB" value="iPhone 13 Pro 128GB" />
+          <div class="field-help">Include storage if you know it. Don't stress if you don't.</div>
+        </div>
+
+        <div class="field">
+          <label>Condition</label>
+          <div class="pills">
+            <button type="button" class="pill">Brand new</button>
+            <button type="button" class="pill active">Like new</button>
+            <button type="button" class="pill">Good</button>
+            <button type="button" class="pill warning">Has issues</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="issues">What's going on? (optional)</label>
+          <textarea id="issues" placeholder="Cracked back glass but screen is fine. Battery health 84%. Face ID still works.">Small chip near the camera lens, otherwise mint. Battery health 91%.</textarea>
+          <div class="field-help">Honest descriptions get more accurate quotes — and no surprises at handover.</div>
+        </div>
+      </div>
+
+      <button type="button" class="add-device">
+        + Add another device
+      </button>
+
+      <div class="device-block">
+        <div class="device-block-label">
+          <span class="device-num">Your details</span>
+        </div>
+
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" type="text" placeholder="Sarah Mitchell" />
+        </div>
+
+        <div class="contact-row">
+          <div class="field">
+            <label for="phone">Mobile</label>
+            <input id="phone" type="tel" placeholder="0412 345 678" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="sarah@example.com.au" />
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <p class="privacy">We only use your details to send your quote. No spam, no selling your data. Read our <a href="#" style="color: var(--ocean);">privacy policy</a>.</p>
+          <button type="submit" class="btn btn-sun">
+            Send me my quote
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PAGE DIVIDER 2 ====================== -->
+<div class="page-divider">
+  <div class="container">
+    <div class="page-divider-eyebrow">Mockup Section 3 of 3</div>
+    <h3>The thank-you page</h3>
+  </div>
+</div>
+
+<!-- ====================== THANK YOU ====================== -->
+<section class="ty">
+  <div class="container">
+    <div class="ty-check">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5 9-9" stroke="#1F3A4D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="section-eyebrow">All sorted</span>
+    <h1>Got it. Quote on the way.</h1>
+    <p class="ty-lede">Thanks Sarah — we've got your details and we're already pricing your iPhone 13 Pro. Quote will land in your inbox within the hour.</p>
+
+    <div class="ty-cards">
+      <div class="ty-card">
+        <div class="ty-card-num">Next, within the hour</div>
+        <h3>Check your inbox</h3>
+        <p>You'll get an itemised quote from hello@sellmyphone.sydney with the exact amount, valid for 7 days. Have a squiz, no obligation.</p>
+      </div>
+      <div class="ty-card">
+        <div class="ty-card-num">When you're happy</div>
+        <h3>Pick a handover</h3>
+        <p>Reply to the quote to book a free pickup anywhere in Sydney metro, or drop in to our Pitt Street office. Whatever's easiest.</p>
+      </div>
+      <div class="ty-card">
+        <div class="ty-card-num">Within 10 minutes</div>
+        <h3>Get paid via PayID</h3>
+        <p>Once we've checked the device and wiped your data, the money lands in your account. Same day, every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
